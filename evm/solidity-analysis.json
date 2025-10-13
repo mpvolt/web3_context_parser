@@ -1,0 +1,5743 @@
+{
+  "metadata": {
+    "analyzedAt": "2025-09-27T19:09:33.433Z",
+    "totalFiles": 9,
+    "fileNames": [
+      "Anyrand.sol",
+      "Ownable.sol",
+      "Gas.sol",
+      "ITypeAndVersion.sol",
+      "IRandomiserCallbackV3.sol",
+      "AnyrandStorage.sol",
+      "IGasStation.sol",
+      "IDrandBeacon.sol",
+      "IAnyrand.sol"
+    ],
+    "repositoryInfo": {
+      "owner": "frogworksio",
+      "repo": "anyrand",
+      "branch": "a48f47c84c945d0729515324d51780ab3a9c6c56",
+      "basePath": "contracts"
+    },
+    "processedFiles": [
+      "Anyrand.sol",
+      "Ownable.sol",
+      "Gas.sol",
+      "ITypeAndVersion.sol",
+      "IRandomiserCallbackV3.sol",
+      "AnyrandStorage.sol",
+      "IGasStation.sol",
+      "IDrandBeacon.sol",
+      "IAnyrand.sol"
+    ]
+  },
+  "dependencies": {
+    "found": [
+      "./AnyrandStorage.sol",
+      "./ITypeAndVersion.sol",
+      "./interfaces/IAnyrand.sol",
+      "./interfaces/IDrandBeacon.sol",
+      "./interfaces/IGasStation.sol",
+      "./interfaces/IRandomiserCallbackV3.sol",
+      "./interfaces/ITypeAndVersion.sol",
+      "./lib/Gas.sol",
+      "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+      "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol",
+      "solady/src/auth/Ownable.sol"
+    ],
+    "resolved": [
+      "solady/src/auth/Ownable.sol",
+      "./lib/Gas.sol",
+      "./interfaces/ITypeAndVersion.sol",
+      "./interfaces/IRandomiserCallbackV3.sol",
+      "./AnyrandStorage.sol",
+      "./interfaces/IGasStation.sol",
+      "./interfaces/IDrandBeacon.sol",
+      "./interfaces/IAnyrand.sol",
+      "./ITypeAndVersion.sol"
+    ],
+    "failed": [
+      "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol",
+      "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
+    ],
+    "external": [
+      "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol",
+      "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
+    ],
+    "unreachable": []
+  },
+  "stateVariables": [
+    {
+      "name": "_HANDOVER_SLOT_SEED",
+      "type": "uint256",
+      "visibility": "private",
+      "isConstant": false,
+      "isImmutable": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 78,
+          "column": 4
+        },
+        "end": {
+          "line": 78,
+          "column": 61
+        }
+      },
+      "sourceCode": "uint256 private constant _HANDOVER_SLOT_SEED = 0x389a75e1"
+    },
+    {
+      "name": "_OWNER_SLOT",
+      "type": "bytes32",
+      "visibility": "internal",
+      "isConstant": false,
+      "isImmutable": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 69,
+          "column": 4
+        },
+        "end": {
+          "line": 70,
+          "column": 74
+        }
+      },
+      "sourceCode": "bytes32 internal constant _OWNER_SLOT =\n        0xffffffffffffffffffffffffffffffffffffffffffffffffffffffff74873927"
+    },
+    {
+      "name": "_OWNERSHIP_HANDOVER_CANCELED_EVENT_SIGNATURE",
+      "type": "uint256",
+      "visibility": "private",
+      "isConstant": false,
+      "isImmutable": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 56,
+          "column": 4
+        },
+        "end": {
+          "line": 57,
+          "column": 74
+        }
+      },
+      "sourceCode": "uint256 private constant _OWNERSHIP_HANDOVER_CANCELED_EVENT_SIGNATURE =\n        0xfa7b8eab7da67f412cc9575ed43464468f9bfbae89d1675917346ca6d8fe3c92"
+    },
+    {
+      "name": "_OWNERSHIP_HANDOVER_REQUESTED_EVENT_SIGNATURE",
+      "type": "uint256",
+      "visibility": "private",
+      "isConstant": false,
+      "isImmutable": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 52,
+          "column": 4
+        },
+        "end": {
+          "line": 53,
+          "column": 74
+        }
+      },
+      "sourceCode": "uint256 private constant _OWNERSHIP_HANDOVER_REQUESTED_EVENT_SIGNATURE =\n        0xdbf36a107da19e49527a7176a1babf963b4b0ff8cde35ee35d6cd8f1f9ac7e1d"
+    },
+    {
+      "name": "_OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE",
+      "type": "uint256",
+      "visibility": "private",
+      "isConstant": false,
+      "isImmutable": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 48,
+          "column": 4
+        },
+        "end": {
+          "line": 49,
+          "column": 74
+        }
+      },
+      "sourceCode": "uint256 private constant _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE =\n        0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
+    },
+    {
+      "name": "GAS_FOR_CALL_EXACT_CHECK",
+      "type": "uint256",
+      "visibility": "internal",
+      "isConstant": false,
+      "isImmutable": false,
+      "file": "Gas.sol",
+      "location": {
+        "start": {
+          "line": 31,
+          "column": 4
+        },
+        "end": {
+          "line": 31,
+          "column": 62
+        }
+      },
+      "sourceCode": "uint256 internal constant GAS_FOR_CALL_EXACT_CHECK = 5_000"
+    }
+  ],
+  "modifiers": [
+    {
+      "name": "onlyOwner",
+      "parameters": [],
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 274,
+          "column": 4
+        },
+        "end": {
+          "line": 277,
+          "column": 4
+        }
+      },
+      "sourceCode": "modifier onlyOwner() virtual {\n        _checkOwner();\n        _;\n    "
+    }
+  ],
+  "functions": [
+    {
+      "name": "_authorizeUpgrade",
+      "signature": "_authorizeUpgrade()",
+      "visibility": "internal",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 72,
+          "column": 4
+        },
+        "end": {
+          "line": 74,
+          "column": 35
+        }
+      },
+      "calls": [],
+      "sourceCode": "function _authorizeUpgrade(\n        address newImplementation\n    ) internal override onlyOwner {",
+      "resolvedCalls": []
+    },
+    {
+      "name": "_callWithExactGas",
+      "signature": "_callWithExactGas() private",
+      "visibility": "private",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 224,
+          "column": 4
+        },
+        "end": {
+          "line": 232,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "gasleft",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 229,
+              "column": 18
+            },
+            "end": {
+              "line": 229,
+              "column": 26
+            }
+          }
+        },
+        {
+          "name": "Gas.callWithExactGas",
+          "arguments": 3,
+          "location": {
+            "start": {
+              "line": 230,
+              "column": 18
+            },
+            "end": {
+              "line": 230,
+              "column": 69
+            }
+          }
+        },
+        {
+          "name": "gasleft",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 231,
+              "column": 19
+            },
+            "end": {
+              "line": 231,
+              "column": 27
+            }
+          }
+        }
+      ],
+      "sourceCode": "function _callWithExactGas(\n        uint256 callbackGasLimit,\n        address target,\n        bytes memory data\n    ) private returns (bool success, uint256 gasUsed) {\n        gasUsed = gasleft();\n        success = Gas.callWithExactGas(callbackGasLimit, target, data);\n        gasUsed -= gasleft();\n    ",
+      "resolvedCalls": [
+        {
+          "name": "gasleft",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 229,
+              "column": 18
+            },
+            "end": {
+              "line": 229,
+              "column": 26
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "Gas.callWithExactGas",
+          "arguments": 3,
+          "location": {
+            "start": {
+              "line": 230,
+              "column": 18
+            },
+            "end": {
+              "line": 230,
+              "column": 69
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "gasleft",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 231,
+              "column": 19
+            },
+            "end": {
+              "line": 231,
+              "column": 27
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "_checkOwner",
+      "signature": "_checkOwner() view",
+      "visibility": "internal",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 151,
+          "column": 4
+        },
+        "end": {
+          "line": 160,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function _checkOwner() internal view virtual {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // If the caller is not the stored owner, revert.\n            if iszero(eq(caller(), sload(_OWNER_SLOT))) {\n                mstore(0x00, 0x82b42900) // `Unauthorized()`.\n                revert(0x1c, 0x04)\n            }\n        }\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "_getMainStorage",
+      "signature": "_getMainStorage() pure",
+      "visibility": "internal",
+      "stateMutability": "pure",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 37,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "_guardInitializeOwner",
+      "signature": "_guardInitializeOwner() pure",
+      "visibility": "internal",
+      "stateMutability": "pure",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 85,
+          "column": 4
+        },
+        "end": {
+          "line": 85,
+          "column": 81
+        }
+      },
+      "calls": [],
+      "sourceCode": "function _guardInitializeOwner() internal pure virtual returns (bool guard) {",
+      "resolvedCalls": []
+    },
+    {
+      "name": "_hashRequest",
+      "signature": "_hashRequest() view",
+      "visibility": "internal",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 87,
+          "column": 4
+        },
+        "end": {
+          "line": 106,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 105,
+              "column": 12
+            }
+          }
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 96,
+              "column": 16
+            },
+            "end": {
+              "line": 104,
+              "column": 16
+            }
+          }
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 98,
+              "column": 20
+            },
+            "end": {
+              "line": 98,
+              "column": 32
+            }
+          }
+        }
+      ],
+      "sourceCode": "function _hashRequest(\n        uint256 requestId,\n        address requester,\n        bytes32 pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit\n    ) internal view returns (bytes32) {\n        return\n            keccak256(\n                abi.encode(\n                    block.chainid,\n                    address(this),\n                    requestId,\n                    requester,\n                    pubKeyHash,\n                    round,\n                    callbackGasLimit\n                )\n            );\n    ",
+      "resolvedCalls": [
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 105,
+              "column": 12
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 96,
+              "column": 16
+            },
+            "end": {
+              "line": 104,
+              "column": 16
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 98,
+              "column": 20
+            },
+            "end": {
+              "line": 98,
+              "column": 32
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "_initializeOwner",
+      "signature": "_initializeOwner()",
+      "visibility": "internal",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 94,
+          "column": 4
+        },
+        "end": {
+          "line": 121,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_guardInitializeOwner",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 95,
+              "column": 34
+            }
+          }
+        }
+      ],
+      "sourceCode": "function _initializeOwner(address newOwner) internal virtual {\n        if (_guardInitializeOwner()) {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                if sload(ownerSlot) {\n                    mstore(0x00, 0x0dc149f0) // `AlreadyInitialized()`.\n                    revert(0x1c, 0x04)\n                }\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Store the new value.\n                sstore(ownerSlot, or(newOwner, shl(255, iszero(newOwner))))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, 0, newOwner)\n            }\n        } else {\n            /// @solidity memory-safe-assembly\n            assembly {\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Store the new value.\n                sstore(_OWNER_SLOT, newOwner)\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, 0, newOwner)\n            }\n        }\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_guardInitializeOwner",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 95,
+              "column": 34
+            }
+          },
+          "definition": {
+            "name": "_guardInitializeOwner",
+            "signature": "_guardInitializeOwner() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 85,
+                "column": 4
+              },
+              "end": {
+                "line": 85,
+                "column": 81
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _guardInitializeOwner() internal pure virtual returns (bool guard) {"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "_ownershipHandoverValidFor",
+      "signature": "_ownershipHandoverValidFor() view",
+      "visibility": "internal",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 165,
+          "column": 4
+        },
+        "end": {
+          "line": 167,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function _ownershipHandoverValidFor() internal view virtual returns (uint64) {\n        return 48 * 3600;\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "_setBeacon",
+      "signature": "_setBeacon()",
+      "visibility": "internal",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 352,
+          "column": 4
+        },
+        "end": {
+          "line": 369,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "publicKeyHash",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 354,
+              "column": 12
+            },
+            "end": {
+              "line": 354,
+              "column": 50
+            }
+          }
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 354,
+              "column": 12
+            },
+            "end": {
+              "line": 354,
+              "column": 34
+            }
+          }
+        },
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 357,
+              "column": 58
+            },
+            "end": {
+              "line": 357,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "InvalidBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 358,
+              "column": 23
+            },
+            "end": {
+              "line": 358,
+              "column": 46
+            }
+          }
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 362,
+              "column": 36
+            },
+            "end": {
+              "line": 362,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "BeaconUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 365,
+              "column": 17
+            },
+            "end": {
+              "line": 365,
+              "column": 40
+            }
+          }
+        },
+        {
+          "name": "InvalidBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 367,
+              "column": 19
+            },
+            "end": {
+              "line": 367,
+              "column": 42
+            }
+          }
+        }
+      ],
+      "sourceCode": "function _setBeacon(address newBeacon) internal {\n        // Sanity check\n        try IDrandBeacon(newBeacon).publicKeyHash() returns (\n            bytes32 pubKeyHash\n        ) {\n            if (pubKeyHash == bytes32(0) || pubKeyHash == keccak256(hex\"\")) {\n                revert InvalidBeacon(newBeacon);\n            }\n\n            // Looks good - add the beacon and update it\n            MainStorage storage $ = _getMainStorage();\n            $.beacons[pubKeyHash] = newBeacon;\n            $.currentBeaconPubKeyHash = pubKeyHash;\n            emit BeaconUpdated(newBeacon);\n        } catch {\n            revert InvalidBeacon(newBeacon);\n        }\n    ",
+      "resolvedCalls": [
+        {
+          "name": "publicKeyHash",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 354,
+              "column": 12
+            },
+            "end": {
+              "line": 354,
+              "column": 50
+            }
+          },
+          "definition": {
+            "name": "publicKeyHash",
+            "signature": "publicKeyHash() external view",
+            "visibility": "external",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "IDrandBeacon.sol",
+            "location": {
+              "start": {
+                "line": 12,
+                "column": 4
+              },
+              "end": {
+                "line": 12,
+                "column": 60
+              }
+            },
+            "calls": [],
+            "sourceCode": "function publicKeyHash() external view returns (bytes32)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 354,
+              "column": 12
+            },
+            "end": {
+              "line": 354,
+              "column": 34
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 357,
+              "column": 58
+            },
+            "end": {
+              "line": 357,
+              "column": 73
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "InvalidBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 358,
+              "column": 23
+            },
+            "end": {
+              "line": 358,
+              "column": 46
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 362,
+              "column": 36
+            },
+            "end": {
+              "line": 362,
+              "column": 52
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "BeaconUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 365,
+              "column": 17
+            },
+            "end": {
+              "line": 365,
+              "column": 40
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "BeaconUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 40,
+                "column": 4
+              },
+              "end": {
+                "line": 40,
+                "column": 50
+              }
+            },
+            "sourceCode": "event BeaconUpdated(address indexed newBeacon)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "InvalidBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 367,
+              "column": 19
+            },
+            "end": {
+              "line": 367,
+              "column": 42
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "_setOwner",
+      "signature": "_setOwner()",
+      "visibility": "internal",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 124,
+          "column": 4
+        },
+        "end": {
+          "line": 148,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_guardInitializeOwner",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 125,
+              "column": 12
+            },
+            "end": {
+              "line": 125,
+              "column": 34
+            }
+          }
+        }
+      ],
+      "sourceCode": "function _setOwner(address newOwner) internal virtual {\n        if (_guardInitializeOwner()) {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, or(newOwner, shl(255, iszero(newOwner))))\n            }\n        } else {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, newOwner)\n            }\n        }\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_guardInitializeOwner",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 125,
+              "column": 12
+            },
+            "end": {
+              "line": 125,
+              "column": 34
+            }
+          },
+          "definition": {
+            "name": "_guardInitializeOwner",
+            "signature": "_guardInitializeOwner() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 85,
+                "column": 4
+              },
+              "end": {
+                "line": 85,
+                "column": 81
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _guardInitializeOwner() internal pure virtual returns (bool guard) {"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "<constructor>",
+      "signature": "constructor() default",
+      "visibility": "default",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": true,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 25,
+          "column": 4
+        },
+        "end": {
+          "line": 27,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_disableInitializers",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 26,
+              "column": 8
+            },
+            "end": {
+              "line": 26,
+              "column": 29
+            }
+          }
+        }
+      ],
+      "sourceCode": "constructor() {\n        _disableInitializers();\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_disableInitializers",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 26,
+              "column": 8
+            },
+            "end": {
+              "line": 26,
+              "column": 29
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "beacon",
+      "signature": "beacon() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 48,
+          "column": 4
+        },
+        "end": {
+          "line": 50,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 49,
+              "column": 15
+            },
+            "end": {
+              "line": 49,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function beacon(bytes32 pubkeyHash) external view returns (address) {\n        return _getMainStorage().beacons[pubkeyHash];\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 49,
+              "column": 15
+            },
+            "end": {
+              "line": 49,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "BeaconUpdated",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 40,
+          "column": 4
+        },
+        "end": {
+          "line": 40,
+          "column": 50
+        }
+      },
+      "sourceCode": "event BeaconUpdated(address indexed newBeacon)"
+    },
+    {
+      "name": "callWithExactGas",
+      "signature": "callWithExactGas()",
+      "visibility": "internal",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Gas.sol",
+      "location": {
+        "start": {
+          "line": 35,
+          "column": 4
+        },
+        "end": {
+          "line": 74,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function callWithExactGas(\n        uint256 gasAmount,\n        address target,\n        bytes memory data\n    ) internal returns (bool success) {\n        assembly {\n            let g := gas()\n            // Compute g -= GAS_FOR_CALL_EXACT_CHECK and check for underflow\n            // The gas actually passed to the callee is min(gasAmount, 63//64*gas available).\n            // We want to ensure that we revert if gasAmount >  63//64*gas available\n            // as we do not want to provide them with less, however that check itself costs\n            // gas.  GAS_FOR_CALL_EXACT_CHECK ensures we have at least enough gas to be able\n            // to revert if gasAmount >  63//64*gas available.\n            if lt(g, GAS_FOR_CALL_EXACT_CHECK) {\n                revert(0, 0)\n            }\n            g := sub(g, GAS_FOR_CALL_EXACT_CHECK)\n            // if g - g//64 <= gasAmount, revert\n            // (we subtract g//64 because of EIP-150)\n            if iszero(gt(sub(g, div(g, 64)), gasAmount)) {\n                revert(0, 0)\n            }\n            // solidity calls check that a contract actually exists at the destination, so we do the same\n            if iszero(extcodesize(target)) {\n                revert(0, 0)\n            }\n            // call and return whether we succeeded. ignore return data\n            // call(gas,addr,value,argsOffset,argsLength,retOffset,retLength)\n            success := call(\n                gasAmount,\n                target,\n                0,\n                add(data, 0x20),\n                mload(data),\n                0,\n                0\n            )\n        }\n        return success;\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "cancelOwnershipHandover",
+      "signature": "cancelOwnershipHandover() public payable",
+      "visibility": "public",
+      "stateMutability": "payable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 208,
+          "column": 4
+        },
+        "end": {
+          "line": 218,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function cancelOwnershipHandover() public payable virtual {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // Compute and set the handover slot to 0.\n            mstore(0x0c, _HANDOVER_SLOT_SEED)\n            mstore(0x00, caller())\n            sstore(keccak256(0x0c, 0x20), 0)\n            // Emit the {OwnershipHandoverCanceled} event.\n            log2(0, 0, _OWNERSHIP_HANDOVER_CANCELED_EVENT_SIGNATURE, caller())\n        }\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "completeOwnershipHandover",
+      "signature": "completeOwnershipHandover() public payable",
+      "visibility": "public",
+      "stateMutability": "payable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 222,
+          "column": 4
+        },
+        "end": {
+          "line": 238,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_setOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 237,
+              "column": 8
+            },
+            "end": {
+              "line": 237,
+              "column": 30
+            }
+          }
+        }
+      ],
+      "sourceCode": "function completeOwnershipHandover(address pendingOwner) public payable virtual onlyOwner {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // Compute and set the handover slot to 0.\n            mstore(0x0c, _HANDOVER_SLOT_SEED)\n            mstore(0x00, pendingOwner)\n            let handoverSlot := keccak256(0x0c, 0x20)\n            // If the handover does not exist, or has expired.\n            if gt(timestamp(), sload(handoverSlot)) {\n                mstore(0x00, 0x6f5e8818) // `NoHandoverRequest()`.\n                revert(0x1c, 0x04)\n            }\n            // Set the handover slot to 0.\n            sstore(handoverSlot, 0)\n        }\n        _setOwner(pendingOwner);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_setOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 237,
+              "column": 8
+            },
+            "end": {
+              "line": 237,
+              "column": 30
+            }
+          },
+          "definition": {
+            "name": "_setOwner",
+            "signature": "_setOwner()",
+            "visibility": "internal",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 124,
+                "column": 4
+              },
+              "end": {
+                "line": 148,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "_guardInitializeOwner",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 125,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 125,
+                    "column": 34
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _setOwner(address newOwner) internal virtual {\n        if (_guardInitializeOwner()) {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, or(newOwner, shl(255, iszero(newOwner))))\n            }\n        } else {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, newOwner)\n            }\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "currentBeaconPubKeyHash",
+      "signature": "currentBeaconPubKeyHash() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 44,
+          "column": 4
+        },
+        "end": {
+          "line": 46,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 45,
+              "column": 15
+            },
+            "end": {
+              "line": 45,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function currentBeaconPubKeyHash() external view returns (bytes32) {\n        return _getMainStorage().currentBeaconPubKeyHash;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 45,
+              "column": 15
+            },
+            "end": {
+              "line": 45,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "ETHWithdrawn",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 39,
+          "column": 4
+        },
+        "end": {
+          "line": 39,
+          "column": 38
+        }
+      },
+      "sourceCode": "event ETHWithdrawn(uint256 amount)"
+    },
+    {
+      "name": "fulfillRandomness",
+      "signature": "fulfillRandomness() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "nonReentrant"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 244,
+          "column": 4
+        },
+        "end": {
+          "line": 339,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 252,
+              "column": 32
+            },
+            "end": {
+              "line": 252,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "InvalidRequestState",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 256,
+              "column": 19
+            },
+            "end": {
+              "line": 256,
+              "column": 65
+            }
+          }
+        },
+        {
+          "name": "_hashRequest",
+          "arguments": 5,
+          "location": {
+            "start": {
+              "line": 261,
+              "column": 26
+            },
+            "end": {
+              "line": 267,
+              "column": 8
+            }
+          }
+        },
+        {
+          "name": "InvalidRequestHash",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 269,
+              "column": 19
+            },
+            "end": {
+              "line": 269,
+              "column": 45
+            }
+          }
+        },
+        {
+          "name": "verifyBeaconRound",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 277,
+              "column": 8
+            },
+            "end": {
+              "line": 277,
+              "column": 78
+            }
+          }
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 277,
+              "column": 8
+            },
+            "end": {
+              "line": 277,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 281,
+              "column": 12
+            },
+            "end": {
+              "line": 290,
+              "column": 12
+            }
+          }
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 6,
+          "location": {
+            "start": {
+              "line": 282,
+              "column": 16
+            },
+            "end": {
+              "line": 289,
+              "column": 16
+            }
+          }
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 286,
+              "column": 20
+            },
+            "end": {
+              "line": 286,
+              "column": 32
+            }
+          }
+        },
+        {
+          "name": "_callWithExactGas",
+          "arguments": 3,
+          "location": {
+            "start": {
+              "line": 293,
+              "column": 53
+            },
+            "end": {
+              "line": 300,
+              "column": 8
+            }
+          }
+        },
+        {
+          "name": "abi.encodePacked",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 296,
+              "column": 12
+            },
+            "end": {
+              "line": 299,
+              "column": 12
+            }
+          }
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 298,
+              "column": 16
+            },
+            "end": {
+              "line": 298,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "RandomnessCallbackFailed",
+          "arguments": 4,
+          "location": {
+            "start": {
+              "line": 322,
+              "column": 17
+            },
+            "end": {
+              "line": 327,
+              "column": 12
+            }
+          }
+        },
+        {
+          "name": "RandomnessFulfilled",
+          "arguments": 4,
+          "location": {
+            "start": {
+              "line": 333,
+              "column": 13
+            },
+            "end": {
+              "line": 338,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "sourceCode": "function fulfillRandomness(\n        uint256 requestId,\n        address requester,\n        bytes32 pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256[2] calldata signature\n    ) external nonReentrant {\n        MainStorage storage $ = _getMainStorage();\n\n        // Ensure the request is in the correct state\n        if ($.requestStates[requestId] != RequestState.Pending) {\n            revert InvalidRequestState($.requestStates[requestId]);\n        }\n\n        // The inputs provided by the keeper must match the commitment we\n        // recorded when the request was made.\n        bytes32 reqHash = _hashRequest(\n            requestId,\n            requester,\n            pubKeyHash,\n            round,\n            callbackGasLimit\n        );\n        if ($.requests[requestId] != reqHash) {\n            revert InvalidRequestHash(reqHash);\n        }\n\n        // Nullify the request hash; fulfilments must never be replayable\n        $.requests[requestId] = bytes32(0);\n\n        // Beacon verification: we check that the signature over the round is\n        // valid for the given pubkey.\n        IDrandBeacon($.beacons[pubKeyHash]).verifyBeaconRound(round, signature);\n\n        // Derive randomness from the signature\n        uint256 randomness = uint256(\n            keccak256(\n                abi.encode(\n                    signature[0] /** entropy */,\n                    signature[1] /** entropy */,\n                    block.chainid /** domain separator */,\n                    address(this) /** salt */,\n                    requestId /** salt */,\n                    requester /** salt */\n                )\n            )\n        );\n\n        (bool didCallbackSucceed, uint256 gasUsed) = _callWithExactGas(\n            callbackGasLimit,\n            requester,\n            abi.encodePacked(\n                IRandomiserCallbackV3.receiveRandomness.selector,\n                abi.encode(requestId, randomness)\n            )\n        );\n        if (!didCallbackSucceed) {\n            // The following code is to help debug any issues that occur in the\n            // case that the callback fails.\n            bytes32 retdata;\n            assembly {\n                function min(a, b) -> c {\n                    switch lt(a, b)\n                    case 1 {\n                        c := a\n                    }\n                    default {\n                        c := b\n                    }\n                }\n\n                mstore(0, 0)\n                // Copy a maximum of 32B from returndata, to ease debugging\n                let r := returndatasize()\n                returndatacopy(0, 0, min(r, 32))\n                retdata := mload(0)\n            }\n            emit RandomnessCallbackFailed(\n                requestId,\n                retdata,\n                callbackGasLimit,\n                gasUsed\n            );\n            $.requestStates[requestId] = RequestState.Failed;\n        } else {\n            $.requestStates[requestId] = RequestState.Fulfilled;\n        }\n\n        emit RandomnessFulfilled(\n            requestId,\n            randomness,\n            didCallbackSucceed,\n            gasUsed\n        );\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 252,
+              "column": 32
+            },
+            "end": {
+              "line": 252,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "InvalidRequestState",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 256,
+              "column": 19
+            },
+            "end": {
+              "line": 256,
+              "column": 65
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_hashRequest",
+          "arguments": 5,
+          "location": {
+            "start": {
+              "line": 261,
+              "column": 26
+            },
+            "end": {
+              "line": 267,
+              "column": 8
+            }
+          },
+          "definition": {
+            "name": "_hashRequest",
+            "signature": "_hashRequest() view",
+            "visibility": "internal",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 87,
+                "column": 4
+              },
+              "end": {
+                "line": 106,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "keccak256",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 95,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 105,
+                    "column": 12
+                  }
+                }
+              },
+              {
+                "name": "abi.encode",
+                "arguments": 7,
+                "location": {
+                  "start": {
+                    "line": 96,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 104,
+                    "column": 16
+                  }
+                }
+              },
+              {
+                "name": "address",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 98,
+                    "column": 20
+                  },
+                  "end": {
+                    "line": 98,
+                    "column": 32
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _hashRequest(\n        uint256 requestId,\n        address requester,\n        bytes32 pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit\n    ) internal view returns (bytes32) {\n        return\n            keccak256(\n                abi.encode(\n                    block.chainid,\n                    address(this),\n                    requestId,\n                    requester,\n                    pubKeyHash,\n                    round,\n                    callbackGasLimit\n                )\n            );\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "InvalidRequestHash",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 269,
+              "column": 19
+            },
+            "end": {
+              "line": 269,
+              "column": 45
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "verifyBeaconRound",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 277,
+              "column": 8
+            },
+            "end": {
+              "line": 277,
+              "column": 78
+            }
+          },
+          "definition": {
+            "name": "verifyBeaconRound",
+            "signature": "verifyBeaconRound() external",
+            "visibility": "external",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "IDrandBeacon.sol",
+            "location": {
+              "start": {
+                "line": 24,
+                "column": 4
+              },
+              "end": {
+                "line": 27,
+                "column": 14
+              }
+            },
+            "calls": [],
+            "sourceCode": "function verifyBeaconRound(\n        uint256 round,\n        uint256[2] memory signature\n    ) external"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 277,
+              "column": 8
+            },
+            "end": {
+              "line": 277,
+              "column": 42
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 281,
+              "column": 12
+            },
+            "end": {
+              "line": 290,
+              "column": 12
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 6,
+          "location": {
+            "start": {
+              "line": 282,
+              "column": 16
+            },
+            "end": {
+              "line": 289,
+              "column": 16
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 286,
+              "column": 20
+            },
+            "end": {
+              "line": 286,
+              "column": 32
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_callWithExactGas",
+          "arguments": 3,
+          "location": {
+            "start": {
+              "line": 293,
+              "column": 53
+            },
+            "end": {
+              "line": 300,
+              "column": 8
+            }
+          },
+          "definition": {
+            "name": "_callWithExactGas",
+            "signature": "_callWithExactGas() private",
+            "visibility": "private",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 224,
+                "column": 4
+              },
+              "end": {
+                "line": 232,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "gasleft",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 229,
+                    "column": 18
+                  },
+                  "end": {
+                    "line": 229,
+                    "column": 26
+                  }
+                }
+              },
+              {
+                "name": "Gas.callWithExactGas",
+                "arguments": 3,
+                "location": {
+                  "start": {
+                    "line": 230,
+                    "column": 18
+                  },
+                  "end": {
+                    "line": 230,
+                    "column": 69
+                  }
+                }
+              },
+              {
+                "name": "gasleft",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 231,
+                    "column": 19
+                  },
+                  "end": {
+                    "line": 231,
+                    "column": 27
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _callWithExactGas(\n        uint256 callbackGasLimit,\n        address target,\n        bytes memory data\n    ) private returns (bool success, uint256 gasUsed) {\n        gasUsed = gasleft();\n        success = Gas.callWithExactGas(callbackGasLimit, target, data);\n        gasUsed -= gasleft();\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "abi.encodePacked",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 296,
+              "column": 12
+            },
+            "end": {
+              "line": 299,
+              "column": 12
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 298,
+              "column": 16
+            },
+            "end": {
+              "line": 298,
+              "column": 48
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "RandomnessCallbackFailed",
+          "arguments": 4,
+          "location": {
+            "start": {
+              "line": 322,
+              "column": 17
+            },
+            "end": {
+              "line": 327,
+              "column": 12
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "RandomnessCallbackFailed",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 32,
+                "column": 4
+              },
+              "end": {
+                "line": 37,
+                "column": 5
+              }
+            },
+            "sourceCode": "event RandomnessCallbackFailed(\n        uint256 indexed requestId,\n        bytes32 retdata,\n        uint256 gasLimit,\n        uint256 actualGasUsed\n    )"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "RandomnessFulfilled",
+          "arguments": 4,
+          "location": {
+            "start": {
+              "line": 333,
+              "column": 13
+            },
+            "end": {
+              "line": 338,
+              "column": 8
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "RandomnessFulfilled",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 26,
+                "column": 4
+              },
+              "end": {
+                "line": 31,
+                "column": 5
+              }
+            },
+            "sourceCode": "event RandomnessFulfilled(\n        uint256 indexed requestId,\n        uint256 randomness,\n        bool callbackSuccess,\n        uint256 actualGasUsed\n    )"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "gasStation",
+      "signature": "gasStation() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 72,
+          "column": 4
+        },
+        "end": {
+          "line": 74,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 73,
+              "column": 15
+            },
+            "end": {
+              "line": 73,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function gasStation() external view returns (address) {\n        return _getMainStorage().gasStation;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 73,
+              "column": 15
+            },
+            "end": {
+              "line": 73,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "GasStationUpdated",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 43,
+          "column": 4
+        },
+        "end": {
+          "line": 43,
+          "column": 58
+        }
+      },
+      "sourceCode": "event GasStationUpdated(address indexed newGasStation)"
+    },
+    {
+      "name": "genesisTimestamp",
+      "signature": "genesisTimestamp() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 15,
+          "column": 4
+        },
+        "end": {
+          "line": 15,
+          "column": 63
+        }
+      },
+      "calls": [],
+      "sourceCode": "function genesisTimestamp() external view returns (uint256)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "getRequestPrice",
+      "signature": "getRequestPrice() public view",
+      "visibility": "public",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 125,
+          "column": 4
+        },
+        "end": {
+          "line": 145,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 128,
+              "column": 32
+            },
+            "end": {
+              "line": 128,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "getTxCost",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 129,
+              "column": 58
+            },
+            "end": {
+              "line": 133,
+              "column": 12
+            }
+          }
+        },
+        {
+          "name": "IGasStation",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 129,
+              "column": 58
+            },
+            "end": {
+              "line": 131,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) public view virtual returns (uint256, uint256) {\n        MainStorage storage $ = _getMainStorage();\n        (uint256 rawTxCost, uint256 effectiveFeePerGas) = IGasStation(\n            $.gasStation\n        ).getTxCost(\n                200_000 /** fulfillRandomness overhead */ + callbackGasLimit\n            );\n        uint256 totalCost = (rawTxCost * $.requestPremiumMultiplierBps) / 1e4;\n        if (effectiveFeePerGas > $.maxFeePerGas) {\n            // Cap gas price at maxFeePerGas (keeper will only fulfill when gas\n            // price <= maxFeePerGas)\n            // Importantly, fulfilment is permissionless, so it's possible to\n            // override this behaviour and fulfill randomness even when the\n            // keeper refuses to.\n            totalCost = $.maxFeePerGas * callbackGasLimit;\n            effectiveFeePerGas = $.maxFeePerGas;\n        }\n        return (totalCost, effectiveFeePerGas);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 128,
+              "column": 32
+            },
+            "end": {
+              "line": 128,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "getTxCost",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 129,
+              "column": 58
+            },
+            "end": {
+              "line": 133,
+              "column": 12
+            }
+          },
+          "definition": {
+            "name": "getTxCost",
+            "signature": "getTxCost() external view",
+            "visibility": "external",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "IGasStation.sol",
+            "location": {
+              "start": {
+                "line": 14,
+                "column": 4
+              },
+              "end": {
+                "line": 16,
+                "column": 75
+              }
+            },
+            "calls": [],
+            "sourceCode": "function getTxCost(\n        uint256 gasLimit\n    ) external view returns (uint256 totalCost, uint256 effectiveFeePerGas)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "IGasStation",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 129,
+              "column": 58
+            },
+            "end": {
+              "line": 131,
+              "column": 8
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "getRequestPrice",
+      "signature": "getRequestPrice() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 58,
+          "column": 4
+        },
+        "end": {
+          "line": 60,
+          "column": 76
+        }
+      },
+      "calls": [],
+      "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) external view returns (uint256 totalPrice, uint256 effectiveFeePerGas)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "getRequestState",
+      "signature": "getRequestState() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 343,
+          "column": 4
+        },
+        "end": {
+          "line": 348,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 346,
+              "column": 32
+            },
+            "end": {
+              "line": 346,
+              "column": 48
+            }
+          }
+        }
+      ],
+      "sourceCode": "function getRequestState(\n        uint256 requestId\n    ) external view returns (RequestState) {\n        MainStorage storage $ = _getMainStorage();\n        return $.requestStates[requestId];\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 346,
+              "column": 32
+            },
+            "end": {
+              "line": 346,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "getRequestState",
+      "signature": "getRequestState() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 75,
+          "column": 4
+        },
+        "end": {
+          "line": 77,
+          "column": 42
+        }
+      },
+      "calls": [],
+      "sourceCode": "function getRequestState(\n        uint256 requestId\n    ) external view returns (RequestState)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "getTxCost",
+      "signature": "getTxCost() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IGasStation.sol",
+      "location": {
+        "start": {
+          "line": 14,
+          "column": 4
+        },
+        "end": {
+          "line": 16,
+          "column": 75
+        }
+      },
+      "calls": [],
+      "sourceCode": "function getTxCost(\n        uint256 gasLimit\n    ) external view returns (uint256 totalCost, uint256 effectiveFeePerGas)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "init",
+      "signature": "init() public",
+      "visibility": "public",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "initializer"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 37,
+          "column": 4
+        },
+        "end": {
+          "line": 69,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "__UUPSUpgradeable_init",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 45,
+              "column": 8
+            },
+            "end": {
+              "line": 45,
+              "column": 31
+            }
+          }
+        },
+        {
+          "name": "_initializeOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 47,
+              "column": 8
+            },
+            "end": {
+              "line": 47,
+              "column": 35
+            }
+          }
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 49,
+              "column": 32
+            },
+            "end": {
+              "line": 49,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "_setBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 51,
+              "column": 8
+            },
+            "end": {
+              "line": 51,
+              "column": 26
+            }
+          }
+        },
+        {
+          "name": "RequestPremiumMultiplierUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 56,
+              "column": 13
+            },
+            "end": {
+              "line": 56,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "MaxCallbackGasLimitUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 59,
+              "column": 13
+            },
+            "end": {
+              "line": 59,
+              "column": 60
+            }
+          }
+        },
+        {
+          "name": "MaxDeadlineDeltaUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 62,
+              "column": 13
+            },
+            "end": {
+              "line": 62,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "GasStationUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 65,
+              "column": 13
+            },
+            "end": {
+              "line": 65,
+              "column": 42
+            }
+          }
+        },
+        {
+          "name": "MaxFeePerGasUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 68,
+              "column": 13
+            },
+            "end": {
+              "line": 68,
+              "column": 46
+            }
+          }
+        }
+      ],
+      "sourceCode": "function init(\n        address beacon_,\n        uint256 requestPremiumMultiplierBps_,\n        uint256 maxCallbackGasLimit_,\n        uint256 maxDeadlineDelta_,\n        address gasStation_,\n        uint256 maxFeePerGas_\n    ) public initializer {\n        __UUPSUpgradeable_init();\n        // solady/auth/Ownable requires explicit initialisation\n        _initializeOwner(msg.sender);\n\n        MainStorage storage $ = _getMainStorage();\n\n        _setBeacon(beacon_);\n\n        $.nextRequestId = 1;\n\n        $.requestPremiumMultiplierBps = requestPremiumMultiplierBps_;\n        emit RequestPremiumMultiplierUpdated(requestPremiumMultiplierBps_);\n\n        $.maxCallbackGasLimit = maxCallbackGasLimit_;\n        emit MaxCallbackGasLimitUpdated(maxCallbackGasLimit_);\n\n        $.maxDeadlineDelta = maxDeadlineDelta_;\n        emit MaxDeadlineDeltaUpdated(maxDeadlineDelta_);\n\n        $.gasStation = gasStation_;\n        emit GasStationUpdated(gasStation_);\n\n        $.maxFeePerGas = maxFeePerGas_;\n        emit MaxFeePerGasUpdated(maxFeePerGas_);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "__UUPSUpgradeable_init",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 45,
+              "column": 8
+            },
+            "end": {
+              "line": 45,
+              "column": 31
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_initializeOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 47,
+              "column": 8
+            },
+            "end": {
+              "line": 47,
+              "column": 35
+            }
+          },
+          "definition": {
+            "name": "_initializeOwner",
+            "signature": "_initializeOwner()",
+            "visibility": "internal",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 94,
+                "column": 4
+              },
+              "end": {
+                "line": 121,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "_guardInitializeOwner",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 95,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 95,
+                    "column": 34
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _initializeOwner(address newOwner) internal virtual {\n        if (_guardInitializeOwner()) {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                if sload(ownerSlot) {\n                    mstore(0x00, 0x0dc149f0) // `AlreadyInitialized()`.\n                    revert(0x1c, 0x04)\n                }\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Store the new value.\n                sstore(ownerSlot, or(newOwner, shl(255, iszero(newOwner))))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, 0, newOwner)\n            }\n        } else {\n            /// @solidity memory-safe-assembly\n            assembly {\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Store the new value.\n                sstore(_OWNER_SLOT, newOwner)\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, 0, newOwner)\n            }\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 49,
+              "column": 32
+            },
+            "end": {
+              "line": 49,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "_setBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 51,
+              "column": 8
+            },
+            "end": {
+              "line": 51,
+              "column": 26
+            }
+          },
+          "definition": {
+            "name": "_setBeacon",
+            "signature": "_setBeacon()",
+            "visibility": "internal",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 352,
+                "column": 4
+              },
+              "end": {
+                "line": 369,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "publicKeyHash",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 354,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 354,
+                    "column": 50
+                  }
+                }
+              },
+              {
+                "name": "IDrandBeacon",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 354,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 354,
+                    "column": 34
+                  }
+                }
+              },
+              {
+                "name": "keccak256",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 357,
+                    "column": 58
+                  },
+                  "end": {
+                    "line": 357,
+                    "column": 73
+                  }
+                }
+              },
+              {
+                "name": "InvalidBeacon",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 358,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 358,
+                    "column": 46
+                  }
+                }
+              },
+              {
+                "name": "_getMainStorage",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 362,
+                    "column": 36
+                  },
+                  "end": {
+                    "line": 362,
+                    "column": 52
+                  }
+                }
+              },
+              {
+                "name": "BeaconUpdated",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 365,
+                    "column": 17
+                  },
+                  "end": {
+                    "line": 365,
+                    "column": 40
+                  }
+                }
+              },
+              {
+                "name": "InvalidBeacon",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 367,
+                    "column": 19
+                  },
+                  "end": {
+                    "line": 367,
+                    "column": 42
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _setBeacon(address newBeacon) internal {\n        // Sanity check\n        try IDrandBeacon(newBeacon).publicKeyHash() returns (\n            bytes32 pubKeyHash\n        ) {\n            if (pubKeyHash == bytes32(0) || pubKeyHash == keccak256(hex\"\")) {\n                revert InvalidBeacon(newBeacon);\n            }\n\n            // Looks good - add the beacon and update it\n            MainStorage storage $ = _getMainStorage();\n            $.beacons[pubKeyHash] = newBeacon;\n            $.currentBeaconPubKeyHash = pubKeyHash;\n            emit BeaconUpdated(newBeacon);\n        } catch {\n            revert InvalidBeacon(newBeacon);\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "RequestPremiumMultiplierUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 56,
+              "column": 13
+            },
+            "end": {
+              "line": 56,
+              "column": 73
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "RequestPremiumMultiplierUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 38,
+                "column": 4
+              },
+              "end": {
+                "line": 38,
+                "column": 59
+              }
+            },
+            "sourceCode": "event RequestPremiumMultiplierUpdated(uint256 newPrice)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "MaxCallbackGasLimitUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 59,
+              "column": 13
+            },
+            "end": {
+              "line": 59,
+              "column": 60
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "MaxCallbackGasLimitUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 41,
+                "column": 4
+              },
+              "end": {
+                "line": 41,
+                "column": 68
+              }
+            },
+            "sourceCode": "event MaxCallbackGasLimitUpdated(uint256 newMaxCallbackGasLimit)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "MaxDeadlineDeltaUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 62,
+              "column": 13
+            },
+            "end": {
+              "line": 62,
+              "column": 54
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "MaxDeadlineDeltaUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 42,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 59
+              }
+            },
+            "sourceCode": "event MaxDeadlineDeltaUpdated(uint256 maxDeadlineDelta)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "GasStationUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 65,
+              "column": 13
+            },
+            "end": {
+              "line": 65,
+              "column": 42
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "GasStationUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 43,
+                "column": 4
+              },
+              "end": {
+                "line": 43,
+                "column": 58
+              }
+            },
+            "sourceCode": "event GasStationUpdated(address indexed newGasStation)"
+          },
+          "isExternal": false
+        },
+        {
+          "name": "MaxFeePerGasUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 68,
+              "column": 13
+            },
+            "end": {
+              "line": 68,
+              "column": 46
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "MaxFeePerGasUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 44,
+                "column": 4
+              },
+              "end": {
+                "line": 44,
+                "column": 51
+              }
+            },
+            "sourceCode": "event MaxFeePerGasUpdated(uint256 maxFeePerGas)"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "maxCallbackGasLimit",
+      "signature": "maxCallbackGasLimit() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 56,
+          "column": 4
+        },
+        "end": {
+          "line": 58,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 57,
+              "column": 15
+            },
+            "end": {
+              "line": 57,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function maxCallbackGasLimit() external view returns (uint256) {\n        return _getMainStorage().maxCallbackGasLimit;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 57,
+              "column": 15
+            },
+            "end": {
+              "line": 57,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "MaxCallbackGasLimitUpdated",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 41,
+          "column": 4
+        },
+        "end": {
+          "line": 41,
+          "column": 68
+        }
+      },
+      "sourceCode": "event MaxCallbackGasLimitUpdated(uint256 newMaxCallbackGasLimit)"
+    },
+    {
+      "name": "maxDeadlineDelta",
+      "signature": "maxDeadlineDelta() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 60,
+          "column": 4
+        },
+        "end": {
+          "line": 62,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 61,
+              "column": 15
+            },
+            "end": {
+              "line": 61,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function maxDeadlineDelta() external view returns (uint256) {\n        return _getMainStorage().maxDeadlineDelta;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 61,
+              "column": 15
+            },
+            "end": {
+              "line": 61,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "MaxDeadlineDeltaUpdated",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 42,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 59
+        }
+      },
+      "sourceCode": "event MaxDeadlineDeltaUpdated(uint256 maxDeadlineDelta)"
+    },
+    {
+      "name": "maxFeePerGas",
+      "signature": "maxFeePerGas() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 76,
+          "column": 4
+        },
+        "end": {
+          "line": 78,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 77,
+              "column": 15
+            },
+            "end": {
+              "line": 77,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function maxFeePerGas() external view returns (uint256) {\n        return _getMainStorage().maxFeePerGas;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 77,
+              "column": 15
+            },
+            "end": {
+              "line": 77,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "MaxFeePerGasUpdated",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 44,
+          "column": 4
+        },
+        "end": {
+          "line": 44,
+          "column": 51
+        }
+      },
+      "sourceCode": "event MaxFeePerGasUpdated(uint256 maxFeePerGas)"
+    },
+    {
+      "name": "nextRequestId",
+      "signature": "nextRequestId() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 64,
+          "column": 4
+        },
+        "end": {
+          "line": 66,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 65,
+              "column": 15
+            },
+            "end": {
+              "line": 65,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function nextRequestId() external view returns (uint256) {\n        return _getMainStorage().nextRequestId;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 65,
+              "column": 15
+            },
+            "end": {
+              "line": 65,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "owner",
+      "signature": "owner() public view",
+      "visibility": "public",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 245,
+          "column": 4
+        },
+        "end": {
+          "line": 250,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function owner() public view virtual returns (address result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            result := sload(_OWNER_SLOT)\n        }\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "type": "event",
+      "name": "OwnershipHandoverCanceled",
+      "parameters": [],
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 45,
+          "column": 4
+        },
+        "end": {
+          "line": 45,
+          "column": 65
+        }
+      },
+      "sourceCode": "event OwnershipHandoverCanceled(address indexed pendingOwner)"
+    },
+    {
+      "name": "ownershipHandoverExpiresAt",
+      "signature": "ownershipHandoverExpiresAt() public view",
+      "visibility": "public",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 253,
+          "column": 4
+        },
+        "end": {
+          "line": 267,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function ownershipHandoverExpiresAt(address pendingOwner)\n        public\n        view\n        virtual\n        returns (uint256 result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // Compute the handover slot.\n            mstore(0x0c, _HANDOVER_SLOT_SEED)\n            mstore(0x00, pendingOwner)\n            // Load the handover slot.\n            result := sload(keccak256(0x0c, 0x20))\n        }\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "type": "event",
+      "name": "OwnershipHandoverRequested",
+      "parameters": [],
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 42,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 66
+        }
+      },
+      "sourceCode": "event OwnershipHandoverRequested(address indexed pendingOwner)"
+    },
+    {
+      "type": "event",
+      "name": "OwnershipTransferred",
+      "parameters": [],
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 39,
+          "column": 4
+        },
+        "end": {
+          "line": 39,
+          "column": 82
+        }
+      },
+      "sourceCode": "event OwnershipTransferred(address indexed oldOwner, address indexed newOwner)"
+    },
+    {
+      "name": "period",
+      "signature": "period() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 18,
+          "column": 4
+        },
+        "end": {
+          "line": 18,
+          "column": 53
+        }
+      },
+      "calls": [],
+      "sourceCode": "function period() external view returns (uint256)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "publicKey",
+      "signature": "publicKey() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 9,
+          "column": 4
+        },
+        "end": {
+          "line": 9,
+          "column": 61
+        }
+      },
+      "calls": [],
+      "sourceCode": "function publicKey() external view returns (bytes memory)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "publicKeyHash",
+      "signature": "publicKeyHash() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 12,
+          "column": 4
+        },
+        "end": {
+          "line": 12,
+          "column": 60
+        }
+      },
+      "calls": [],
+      "sourceCode": "function publicKeyHash() external view returns (bytes32)",
+      "resolvedCalls": []
+    },
+    {
+      "type": "event",
+      "name": "RandomnessCallbackFailed",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 32,
+          "column": 4
+        },
+        "end": {
+          "line": 37,
+          "column": 5
+        }
+      },
+      "sourceCode": "event RandomnessCallbackFailed(\n        uint256 indexed requestId,\n        bytes32 retdata,\n        uint256 gasLimit,\n        uint256 actualGasUsed\n    )"
+    },
+    {
+      "type": "event",
+      "name": "RandomnessFulfilled",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 26,
+          "column": 4
+        },
+        "end": {
+          "line": 31,
+          "column": 5
+        }
+      },
+      "sourceCode": "event RandomnessFulfilled(\n        uint256 indexed requestId,\n        uint256 randomness,\n        bool callbackSuccess,\n        uint256 actualGasUsed\n    )"
+    },
+    {
+      "type": "event",
+      "name": "RandomnessRequested",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 25,
+          "column": 5
+        }
+      },
+      "sourceCode": "event RandomnessRequested(\n        uint256 indexed requestId,\n        address indexed requester,\n        bytes32 indexed pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256 feePaid,\n        uint256 effectiveFeePerGas\n    )"
+    },
+    {
+      "name": "receiveRandomness",
+      "signature": "receiveRandomness() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IRandomiserCallbackV3.sol",
+      "location": {
+        "start": {
+          "line": 11,
+          "column": 4
+        },
+        "end": {
+          "line": 11,
+          "column": 78
+        }
+      },
+      "calls": [],
+      "sourceCode": "function receiveRandomness(uint256 requestId, uint256 randomWord) external",
+      "resolvedCalls": []
+    },
+    {
+      "name": "renounceOwnership",
+      "signature": "renounceOwnership() public payable",
+      "visibility": "public",
+      "stateMutability": "payable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 186,
+          "column": 4
+        },
+        "end": {
+          "line": 188,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_setOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 187,
+              "column": 8
+            },
+            "end": {
+              "line": 187,
+              "column": 28
+            }
+          }
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 187,
+              "column": 18
+            },
+            "end": {
+              "line": 187,
+              "column": 27
+            }
+          }
+        }
+      ],
+      "sourceCode": "function renounceOwnership() public payable virtual onlyOwner {\n        _setOwner(address(0));\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_setOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 187,
+              "column": 8
+            },
+            "end": {
+              "line": 187,
+              "column": 28
+            }
+          },
+          "definition": {
+            "name": "_setOwner",
+            "signature": "_setOwner()",
+            "visibility": "internal",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 124,
+                "column": 4
+              },
+              "end": {
+                "line": 148,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "_guardInitializeOwner",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 125,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 125,
+                    "column": 34
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _setOwner(address newOwner) internal virtual {\n        if (_guardInitializeOwner()) {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, or(newOwner, shl(255, iszero(newOwner))))\n            }\n        } else {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, newOwner)\n            }\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 187,
+              "column": 18
+            },
+            "end": {
+              "line": 187,
+              "column": 27
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "requestOwnershipHandover",
+      "signature": "requestOwnershipHandover() public payable",
+      "visibility": "public",
+      "stateMutability": "payable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 192,
+          "column": 4
+        },
+        "end": {
+          "line": 205,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_ownershipHandoverValidFor",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 194,
+              "column": 48
+            },
+            "end": {
+              "line": 194,
+              "column": 75
+            }
+          }
+        }
+      ],
+      "sourceCode": "function requestOwnershipHandover() public payable virtual {\n        unchecked {\n            uint256 expires = block.timestamp + _ownershipHandoverValidFor();\n            /// @solidity memory-safe-assembly\n            assembly {\n                // Compute and set the handover slot to `expires`.\n                mstore(0x0c, _HANDOVER_SLOT_SEED)\n                mstore(0x00, caller())\n                sstore(keccak256(0x0c, 0x20), expires)\n                // Emit the {OwnershipHandoverRequested} event.\n                log2(0, 0, _OWNERSHIP_HANDOVER_REQUESTED_EVENT_SIGNATURE, caller())\n            }\n        }\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_ownershipHandoverValidFor",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 194,
+              "column": 48
+            },
+            "end": {
+              "line": 194,
+              "column": 75
+            }
+          },
+          "definition": {
+            "name": "_ownershipHandoverValidFor",
+            "signature": "_ownershipHandoverValidFor() view",
+            "visibility": "internal",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 165,
+                "column": 4
+              },
+              "end": {
+                "line": 167,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _ownershipHandoverValidFor() internal view virtual returns (uint64) {\n        return 48 * 3600;\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "requestPremiumMultiplierBps",
+      "signature": "requestPremiumMultiplierBps() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 52,
+          "column": 4
+        },
+        "end": {
+          "line": 54,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 53,
+              "column": 15
+            },
+            "end": {
+              "line": 53,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function requestPremiumMultiplierBps() external view returns (uint256) {\n        return _getMainStorage().requestPremiumMultiplierBps;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 53,
+              "column": 15
+            },
+            "end": {
+              "line": 53,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "name": "RequestPremiumMultiplierUpdated",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 38,
+          "column": 4
+        },
+        "end": {
+          "line": 38,
+          "column": 59
+        }
+      },
+      "sourceCode": "event RequestPremiumMultiplierUpdated(uint256 newPrice)"
+    },
+    {
+      "name": "requestRandomness",
+      "signature": "requestRandomness() external payable",
+      "visibility": "external",
+      "stateMutability": "payable",
+      "modifiers": [
+        "nonReentrant"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 154,
+          "column": 4
+        },
+        "end": {
+          "line": 215,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "getRequestPrice",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 160,
+              "column": 57
+            },
+            "end": {
+              "line": 162,
+              "column": 8
+            }
+          }
+        },
+        {
+          "name": "IncorrectPayment",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 164,
+              "column": 19
+            },
+            "end": {
+              "line": 164,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 167,
+              "column": 32
+            },
+            "end": {
+              "line": 167,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "OverGasLimit",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 169,
+              "column": 19
+            },
+            "end": {
+              "line": 169,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 176,
+              "column": 39
+            },
+            "end": {
+              "line": 176,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "drandBeacon.publicKeyHash",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 177,
+              "column": 25
+            },
+            "end": {
+              "line": 177,
+              "column": 51
+            }
+          }
+        },
+        {
+          "name": "drandBeacon.genesisTimestamp",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 178,
+              "column": 30
+            },
+            "end": {
+              "line": 178,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "drandBeacon.period",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 179,
+              "column": 29
+            },
+            "end": {
+              "line": 179,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "InvalidDeadline",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 185,
+              "column": 23
+            },
+            "end": {
+              "line": 185,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "assert",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 194,
+              "column": 8
+            },
+            "end": {
+              "line": 194,
+              "column": 69
+            }
+          }
+        },
+        {
+          "name": "_hashRequest",
+          "arguments": 5,
+          "location": {
+            "start": {
+              "line": 196,
+              "column": 32
+            },
+            "end": {
+              "line": 202,
+              "column": 8
+            }
+          }
+        },
+        {
+          "name": "RandomnessRequested",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 204,
+              "column": 13
+            },
+            "end": {
+              "line": 212,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "sourceCode": "function requestRandomness(\n        uint256 deadline,\n        uint256 callbackGasLimit\n    ) external payable override nonReentrant returns (uint256) {\n        // Compute the total request price (including the premium) that will be\n        // used to cover the keeper's costs\n        (uint256 reqPrice, uint256 effectiveFeePerGas) = getRequestPrice(\n            callbackGasLimit\n        );\n        if (msg.value != reqPrice) {\n            revert IncorrectPayment(msg.value, reqPrice);\n        }\n\n        MainStorage storage $ = _getMainStorage();\n        if (callbackGasLimit > $.maxCallbackGasLimit) {\n            revert OverGasLimit(callbackGasLimit);\n        }\n\n        bytes32 pubKeyHash = $.currentBeaconPubKeyHash;\n        // Here we find the nearest round\n        uint64 round;\n        {\n            IDrandBeacon drandBeacon = IDrandBeacon($.beacons[pubKeyHash]);\n            pubKeyHash = drandBeacon.publicKeyHash();\n            uint256 genesis = drandBeacon.genesisTimestamp();\n            uint256 period = drandBeacon.period();\n            if (\n                (deadline > block.timestamp + $.maxDeadlineDelta) ||\n                (deadline < genesis) ||\n                deadline < (block.timestamp + period)\n            ) {\n                revert InvalidDeadline(deadline);\n            }\n            // Calculate nearest round from deadline (rounding to the future)\n            uint256 delta = deadline - genesis;\n            round = uint64((delta / period) + (delta % period));\n        }\n\n        // Record the commitment of this request\n        uint256 requestId = $.nextRequestId++;\n        assert($.requestStates[requestId] == RequestState.Nonexistent);\n        $.requestStates[requestId] = RequestState.Pending;\n        $.requests[requestId] = _hashRequest(\n            requestId,\n            msg.sender,\n            pubKeyHash,\n            round,\n            callbackGasLimit\n        );\n\n        emit RandomnessRequested(\n            requestId,\n            msg.sender,\n            pubKeyHash,\n            round,\n            callbackGasLimit,\n            reqPrice,\n            effectiveFeePerGas\n        );\n\n        return requestId;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "getRequestPrice",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 160,
+              "column": 57
+            },
+            "end": {
+              "line": 162,
+              "column": 8
+            }
+          },
+          "definition": {
+            "name": "getRequestPrice",
+            "signature": "getRequestPrice() public view",
+            "visibility": "public",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 125,
+                "column": 4
+              },
+              "end": {
+                "line": 145,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "_getMainStorage",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 128,
+                    "column": 32
+                  },
+                  "end": {
+                    "line": 128,
+                    "column": 48
+                  }
+                }
+              },
+              {
+                "name": "getTxCost",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 129,
+                    "column": 58
+                  },
+                  "end": {
+                    "line": 133,
+                    "column": 12
+                  }
+                }
+              },
+              {
+                "name": "IGasStation",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 129,
+                    "column": 58
+                  },
+                  "end": {
+                    "line": 131,
+                    "column": 8
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) public view virtual returns (uint256, uint256) {\n        MainStorage storage $ = _getMainStorage();\n        (uint256 rawTxCost, uint256 effectiveFeePerGas) = IGasStation(\n            $.gasStation\n        ).getTxCost(\n                200_000 /** fulfillRandomness overhead */ + callbackGasLimit\n            );\n        uint256 totalCost = (rawTxCost * $.requestPremiumMultiplierBps) / 1e4;\n        if (effectiveFeePerGas > $.maxFeePerGas) {\n            // Cap gas price at maxFeePerGas (keeper will only fulfill when gas\n            // price <= maxFeePerGas)\n            // Importantly, fulfilment is permissionless, so it's possible to\n            // override this behaviour and fulfill randomness even when the\n            // keeper refuses to.\n            totalCost = $.maxFeePerGas * callbackGasLimit;\n            effectiveFeePerGas = $.maxFeePerGas;\n        }\n        return (totalCost, effectiveFeePerGas);\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "IncorrectPayment",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 164,
+              "column": 19
+            },
+            "end": {
+              "line": 164,
+              "column": 55
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 167,
+              "column": 32
+            },
+            "end": {
+              "line": 167,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "OverGasLimit",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 169,
+              "column": 19
+            },
+            "end": {
+              "line": 169,
+              "column": 48
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 176,
+              "column": 39
+            },
+            "end": {
+              "line": 176,
+              "column": 73
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "drandBeacon.publicKeyHash",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 177,
+              "column": 25
+            },
+            "end": {
+              "line": 177,
+              "column": 51
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "drandBeacon.genesisTimestamp",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 178,
+              "column": 30
+            },
+            "end": {
+              "line": 178,
+              "column": 59
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "drandBeacon.period",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 179,
+              "column": 29
+            },
+            "end": {
+              "line": 179,
+              "column": 48
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "InvalidDeadline",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 185,
+              "column": 23
+            },
+            "end": {
+              "line": 185,
+              "column": 47
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "assert",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 194,
+              "column": 8
+            },
+            "end": {
+              "line": 194,
+              "column": 69
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_hashRequest",
+          "arguments": 5,
+          "location": {
+            "start": {
+              "line": 196,
+              "column": 32
+            },
+            "end": {
+              "line": 202,
+              "column": 8
+            }
+          },
+          "definition": {
+            "name": "_hashRequest",
+            "signature": "_hashRequest() view",
+            "visibility": "internal",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 87,
+                "column": 4
+              },
+              "end": {
+                "line": 106,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "keccak256",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 95,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 105,
+                    "column": 12
+                  }
+                }
+              },
+              {
+                "name": "abi.encode",
+                "arguments": 7,
+                "location": {
+                  "start": {
+                    "line": 96,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 104,
+                    "column": 16
+                  }
+                }
+              },
+              {
+                "name": "address",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 98,
+                    "column": 20
+                  },
+                  "end": {
+                    "line": 98,
+                    "column": 32
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _hashRequest(\n        uint256 requestId,\n        address requester,\n        bytes32 pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit\n    ) internal view returns (bytes32) {\n        return\n            keccak256(\n                abi.encode(\n                    block.chainid,\n                    address(this),\n                    requestId,\n                    requester,\n                    pubKeyHash,\n                    round,\n                    callbackGasLimit\n                )\n            );\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "RandomnessRequested",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 204,
+              "column": 13
+            },
+            "end": {
+              "line": 212,
+              "column": 8
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "RandomnessRequested",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 17,
+                "column": 4
+              },
+              "end": {
+                "line": 25,
+                "column": 5
+              }
+            },
+            "sourceCode": "event RandomnessRequested(\n        uint256 indexed requestId,\n        address indexed requester,\n        bytes32 indexed pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256 feePaid,\n        uint256 effectiveFeePerGas\n    )"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "requestRandomness",
+      "signature": "requestRandomness() external payable",
+      "visibility": "external",
+      "stateMutability": "payable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 68,
+          "column": 4
+        },
+        "end": {
+          "line": 71,
+          "column": 40
+        }
+      },
+      "calls": [],
+      "sourceCode": "function requestRandomness(\n        uint256 deadline,\n        uint256 callbackGasLimit\n    ) external payable returns (uint256)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "requests",
+      "signature": "requests() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 68,
+          "column": 4
+        },
+        "end": {
+          "line": 70,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 69,
+              "column": 15
+            },
+            "end": {
+              "line": 69,
+              "column": 31
+            }
+          }
+        }
+      ],
+      "sourceCode": "function requests(uint256 requestId) external view returns (bytes32) {\n        return _getMainStorage().requests[requestId];\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 69,
+              "column": 15
+            },
+            "end": {
+              "line": 69,
+              "column": 31
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "setBeacon",
+      "signature": "setBeacon() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 381,
+          "column": 4
+        },
+        "end": {
+          "line": 383,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_setBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 382,
+              "column": 8
+            },
+            "end": {
+              "line": 382,
+              "column": 28
+            }
+          }
+        }
+      ],
+      "sourceCode": "function setBeacon(address newBeacon) external onlyOwner {\n        _setBeacon(newBeacon);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_setBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 382,
+              "column": 8
+            },
+            "end": {
+              "line": 382,
+              "column": 28
+            }
+          },
+          "definition": {
+            "name": "_setBeacon",
+            "signature": "_setBeacon()",
+            "visibility": "internal",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 352,
+                "column": 4
+              },
+              "end": {
+                "line": 369,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "publicKeyHash",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 354,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 354,
+                    "column": 50
+                  }
+                }
+              },
+              {
+                "name": "IDrandBeacon",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 354,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 354,
+                    "column": 34
+                  }
+                }
+              },
+              {
+                "name": "keccak256",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 357,
+                    "column": 58
+                  },
+                  "end": {
+                    "line": 357,
+                    "column": 73
+                  }
+                }
+              },
+              {
+                "name": "InvalidBeacon",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 358,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 358,
+                    "column": 46
+                  }
+                }
+              },
+              {
+                "name": "_getMainStorage",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 362,
+                    "column": 36
+                  },
+                  "end": {
+                    "line": 362,
+                    "column": 52
+                  }
+                }
+              },
+              {
+                "name": "BeaconUpdated",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 365,
+                    "column": 17
+                  },
+                  "end": {
+                    "line": 365,
+                    "column": 40
+                  }
+                }
+              },
+              {
+                "name": "InvalidBeacon",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 367,
+                    "column": 19
+                  },
+                  "end": {
+                    "line": 367,
+                    "column": 42
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _setBeacon(address newBeacon) internal {\n        // Sanity check\n        try IDrandBeacon(newBeacon).publicKeyHash() returns (\n            bytes32 pubKeyHash\n        ) {\n            if (pubKeyHash == bytes32(0) || pubKeyHash == keccak256(hex\"\")) {\n                revert InvalidBeacon(newBeacon);\n            }\n\n            // Looks good - add the beacon and update it\n            MainStorage storage $ = _getMainStorage();\n            $.beacons[pubKeyHash] = newBeacon;\n            $.currentBeaconPubKeyHash = pubKeyHash;\n            emit BeaconUpdated(newBeacon);\n        } catch {\n            revert InvalidBeacon(newBeacon);\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "setGasStation",
+      "signature": "setGasStation() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 417,
+          "column": 4
+        },
+        "end": {
+          "line": 421,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 418,
+              "column": 32
+            },
+            "end": {
+              "line": 418,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "GasStationUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 420,
+              "column": 13
+            },
+            "end": {
+              "line": 420,
+              "column": 44
+            }
+          }
+        }
+      ],
+      "sourceCode": "function setGasStation(address newGasStation) external onlyOwner {\n        MainStorage storage $ = _getMainStorage();\n        $.gasStation = newGasStation;\n        emit GasStationUpdated(newGasStation);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 418,
+              "column": 32
+            },
+            "end": {
+              "line": 418,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "GasStationUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 420,
+              "column": 13
+            },
+            "end": {
+              "line": 420,
+              "column": 44
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "GasStationUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 43,
+                "column": 4
+              },
+              "end": {
+                "line": 43,
+                "column": 58
+              }
+            },
+            "sourceCode": "event GasStationUpdated(address indexed newGasStation)"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "setMaxCallbackGasLimit",
+      "signature": "setMaxCallbackGasLimit() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 397,
+          "column": 4
+        },
+        "end": {
+          "line": 403,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 400,
+              "column": 32
+            },
+            "end": {
+              "line": 400,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "MaxCallbackGasLimitUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 402,
+              "column": 13
+            },
+            "end": {
+              "line": 402,
+              "column": 62
+            }
+          }
+        }
+      ],
+      "sourceCode": "function setMaxCallbackGasLimit(\n        uint256 newMaxCallbackGasLimit\n    ) external onlyOwner {\n        MainStorage storage $ = _getMainStorage();\n        $.maxCallbackGasLimit = newMaxCallbackGasLimit;\n        emit MaxCallbackGasLimitUpdated(newMaxCallbackGasLimit);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 400,
+              "column": 32
+            },
+            "end": {
+              "line": 400,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "MaxCallbackGasLimitUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 402,
+              "column": 13
+            },
+            "end": {
+              "line": 402,
+              "column": 62
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "MaxCallbackGasLimitUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 41,
+                "column": 4
+              },
+              "end": {
+                "line": 41,
+                "column": 68
+              }
+            },
+            "sourceCode": "event MaxCallbackGasLimitUpdated(uint256 newMaxCallbackGasLimit)"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "setMaxDeadlineDelta",
+      "signature": "setMaxDeadlineDelta() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 407,
+          "column": 4
+        },
+        "end": {
+          "line": 413,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 410,
+              "column": 32
+            },
+            "end": {
+              "line": 410,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "MaxDeadlineDeltaUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 412,
+              "column": 13
+            },
+            "end": {
+              "line": 412,
+              "column": 56
+            }
+          }
+        }
+      ],
+      "sourceCode": "function setMaxDeadlineDelta(\n        uint256 newMaxDeadlineDelta\n    ) external onlyOwner {\n        MainStorage storage $ = _getMainStorage();\n        $.maxDeadlineDelta = newMaxDeadlineDelta;\n        emit MaxDeadlineDeltaUpdated(newMaxDeadlineDelta);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 410,
+              "column": 32
+            },
+            "end": {
+              "line": 410,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "MaxDeadlineDeltaUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 412,
+              "column": 13
+            },
+            "end": {
+              "line": 412,
+              "column": 56
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "MaxDeadlineDeltaUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 42,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 59
+              }
+            },
+            "sourceCode": "event MaxDeadlineDeltaUpdated(uint256 maxDeadlineDelta)"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "setRequestPremiumMultiplierBps",
+      "signature": "setRequestPremiumMultiplierBps() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 387,
+          "column": 4
+        },
+        "end": {
+          "line": 393,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 390,
+              "column": 32
+            },
+            "end": {
+              "line": 390,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "RequestPremiumMultiplierUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 392,
+              "column": 13
+            },
+            "end": {
+              "line": 392,
+              "column": 75
+            }
+          }
+        }
+      ],
+      "sourceCode": "function setRequestPremiumMultiplierBps(\n        uint256 newRequestPremiumMultiplierBps\n    ) external onlyOwner {\n        MainStorage storage $ = _getMainStorage();\n        $.requestPremiumMultiplierBps = newRequestPremiumMultiplierBps;\n        emit RequestPremiumMultiplierUpdated(newRequestPremiumMultiplierBps);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 390,
+              "column": 32
+            },
+            "end": {
+              "line": 390,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "RequestPremiumMultiplierUpdated",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 392,
+              "column": 13
+            },
+            "end": {
+              "line": 392,
+              "column": 75
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "RequestPremiumMultiplierUpdated",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 38,
+                "column": 4
+              },
+              "end": {
+                "line": 38,
+                "column": 59
+              }
+            },
+            "sourceCode": "event RequestPremiumMultiplierUpdated(uint256 newPrice)"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "transferOwnership",
+      "signature": "transferOwnership() public payable",
+      "visibility": "public",
+      "stateMutability": "payable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Ownable.sol",
+      "location": {
+        "start": {
+          "line": 174,
+          "column": 4
+        },
+        "end": {
+          "line": 183,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "_setOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 182,
+              "column": 8
+            },
+            "end": {
+              "line": 182,
+              "column": 26
+            }
+          }
+        }
+      ],
+      "sourceCode": "function transferOwnership(address newOwner) public payable virtual onlyOwner {\n        /// @solidity memory-safe-assembly\n        assembly {\n            if iszero(shl(96, newOwner)) {\n                mstore(0x00, 0x7448fbae) // `NewOwnerIsZeroAddress()`.\n                revert(0x1c, 0x04)\n            }\n        }\n        _setOwner(newOwner);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "_setOwner",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 182,
+              "column": 8
+            },
+            "end": {
+              "line": 182,
+              "column": 26
+            }
+          },
+          "definition": {
+            "name": "_setOwner",
+            "signature": "_setOwner()",
+            "visibility": "internal",
+            "stateMutability": "nonpayable",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Ownable.sol",
+            "location": {
+              "start": {
+                "line": 124,
+                "column": 4
+              },
+              "end": {
+                "line": 148,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "_guardInitializeOwner",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 125,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 125,
+                    "column": 34
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _setOwner(address newOwner) internal virtual {\n        if (_guardInitializeOwner()) {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, or(newOwner, shl(255, iszero(newOwner))))\n            }\n        } else {\n            /// @solidity memory-safe-assembly\n            assembly {\n                let ownerSlot := _OWNER_SLOT\n                // Clean the upper 96 bits.\n                newOwner := shr(96, shl(96, newOwner))\n                // Emit the {OwnershipTransferred} event.\n                log3(0, 0, _OWNERSHIP_TRANSFERRED_EVENT_SIGNATURE, sload(ownerSlot), newOwner)\n                // Store the new value.\n                sstore(ownerSlot, newOwner)\n            }\n        }\n    "
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    {
+      "name": "typeAndVersion",
+      "signature": "typeAndVersion() external pure",
+      "visibility": "external",
+      "stateMutability": "pure",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 77,
+          "column": 4
+        },
+        "end": {
+          "line": 79,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function typeAndVersion() external pure returns (string memory) {\n        return \"Anyrand 1.0.0\";\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "typeAndVersion",
+      "signature": "typeAndVersion() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "ITypeAndVersion.sol",
+      "location": {
+        "start": {
+          "line": 7,
+          "column": 4
+        },
+        "end": {
+          "line": 7,
+          "column": 67
+        }
+      },
+      "calls": [],
+      "sourceCode": "function typeAndVersion() external view returns (string memory)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "verifyBeaconRound",
+      "signature": "verifyBeaconRound() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 24,
+          "column": 4
+        },
+        "end": {
+          "line": 27,
+          "column": 14
+        }
+      },
+      "calls": [],
+      "sourceCode": "function verifyBeaconRound(\n        uint256 round,\n        uint256[2] memory signature\n    ) external",
+      "resolvedCalls": []
+    },
+    {
+      "name": "withdrawETH",
+      "signature": "withdrawETH() external",
+      "visibility": "external",
+      "stateMutability": "nonpayable",
+      "modifiers": [
+        "onlyOwner"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 111,
+          "column": 4
+        },
+        "end": {
+          "line": 120,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 113,
+              "column": 21
+            },
+            "end": {
+              "line": 113,
+              "column": 33
+            }
+          }
+        },
+        {
+          "name": "TransferFailed",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 117,
+              "column": 19
+            },
+            "end": {
+              "line": 117,
+              "column": 52
+            }
+          }
+        },
+        {
+          "name": "ETHWithdrawn",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 119,
+              "column": 13
+            },
+            "end": {
+              "line": 119,
+              "column": 32
+            }
+          }
+        }
+      ],
+      "sourceCode": "function withdrawETH(uint256 amount) external onlyOwner {\n        if (amount == 0) {\n            amount = address(this).balance;\n        }\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        if (!success) {\n            revert TransferFailed(msg.sender, amount);\n        }\n        emit ETHWithdrawn(amount);\n    ",
+      "resolvedCalls": [
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 113,
+              "column": 21
+            },
+            "end": {
+              "line": 113,
+              "column": 33
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "TransferFailed",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 117,
+              "column": 19
+            },
+            "end": {
+              "line": 117,
+              "column": 52
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "ETHWithdrawn",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 119,
+              "column": 13
+            },
+            "end": {
+              "line": 119,
+              "column": 32
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "ETHWithdrawn",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 39,
+                "column": 4
+              },
+              "end": {
+                "line": 39,
+                "column": 38
+              }
+            },
+            "sourceCode": "event ETHWithdrawn(uint256 amount)"
+          },
+          "isExternal": false
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalDependencies": 11,
+    "resolvedDependencies": 9,
+    "failedDependencies": 2,
+    "externalDependencies": 2,
+    "dependencySuccessRate": 0.8181818181818182,
+    "totalStateVariables": 6,
+    "totalModifiers": 1,
+    "totalFunctions": 51,
+    "totalEvents": 13,
+    "externalFunctionCalls": 32,
+    "internalFunctionCalls": 49
+  }
+}

@@ -1,0 +1,1385 @@
+{
+  "metadata": {
+    "extractedAt": "2025-09-27T20:30:16.217Z",
+    "targetFunction": "requestRandomness",
+    "targetSignature": "requestRandomness() external payable",
+    "originalAnalysis": {
+      "totalFiles": 9,
+      "totalFunctions": 52,
+      "analyzedAt": "2025-09-27T20:30:16.212Z"
+    },
+    "extraction": {
+      "functionsExtracted": 10,
+      "maxCallDepth": 2,
+      "filesInvolved": [
+        "IAnyrand.sol",
+        "IGasStation.sol",
+        "AnyrandStorage.sol",
+        "Anyrand.sol",
+        "IDrandBeacon.sol"
+      ]
+    }
+  },
+  "callTree": {
+    "name": "requestRandomness",
+    "signature": "requestRandomness() external payable",
+    "file": "Anyrand.sol",
+    "calls": [
+      {
+        "name": "getRequestPrice",
+        "signature": "getRequestPrice() public view",
+        "file": "Anyrand.sol",
+        "calls": [
+          {
+            "name": "IGasStation.getTxCost",
+            "type": "interface",
+            "interface": "IGasStation",
+            "external": false,
+            "definition": {
+              "name": "getTxCost",
+              "signature": "getTxCost() external view",
+              "visibility": "external",
+              "stateMutability": "view",
+              "modifiers": [],
+              "parameters": [],
+              "returnParameters": [],
+              "isConstructor": false,
+              "isReceive": false,
+              "isFallback": false,
+              "file": "IGasStation.sol",
+              "location": {
+                "start": {
+                  "line": 14,
+                  "column": 4
+                },
+                "end": {
+                  "line": 16,
+                  "column": 75
+                }
+              },
+              "calls": [],
+              "sourceCode": "function getTxCost(\n        uint256 gasLimit\n    ) external view returns (uint256 totalCost, uint256 effectiveFeePerGas)",
+              "resolvedCalls": []
+            },
+            "pattern": "direct",
+            "depth": 2
+          },
+          {
+            "name": "IAnyrand.getRequestPrice",
+            "type": "interface",
+            "interface": "IAnyrand",
+            "external": false,
+            "definition": {
+              "name": "getRequestPrice",
+              "signature": "getRequestPrice() external view",
+              "visibility": "external",
+              "stateMutability": "view",
+              "modifiers": [],
+              "parameters": [],
+              "returnParameters": [],
+              "isConstructor": false,
+              "isReceive": false,
+              "isFallback": false,
+              "file": "IAnyrand.sol",
+              "location": {
+                "start": {
+                  "line": 58,
+                  "column": 4
+                },
+                "end": {
+                  "line": 60,
+                  "column": 76
+                }
+              },
+              "calls": [],
+              "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) external view returns (uint256 totalPrice, uint256 effectiveFeePerGas)",
+              "resolvedCalls": []
+            },
+            "pattern": "byname",
+            "depth": 2
+          }
+        ],
+        "depth": 1
+      },
+      {
+        "name": "IncorrectPayment",
+        "external": true,
+        "arguments": 2,
+        "depth": 1
+      },
+      {
+        "name": "_getMainStorage",
+        "signature": "_getMainStorage() pure",
+        "file": "AnyrandStorage.sol",
+        "calls": [],
+        "depth": 1
+      },
+      {
+        "name": "OverGasLimit",
+        "external": true,
+        "arguments": 1,
+        "depth": 1
+      },
+      {
+        "name": "IDrandBeacon",
+        "external": true,
+        "arguments": 1,
+        "depth": 1
+      },
+      {
+        "name": "drandBeacon.publicKeyHash",
+        "external": true,
+        "arguments": 0,
+        "depth": 1
+      },
+      {
+        "name": "drandBeacon.genesisTimestamp",
+        "external": true,
+        "arguments": 0,
+        "depth": 1
+      },
+      {
+        "name": "drandBeacon.period",
+        "external": true,
+        "arguments": 0,
+        "depth": 1
+      },
+      {
+        "name": "InvalidDeadline",
+        "external": true,
+        "arguments": 1,
+        "depth": 1
+      },
+      {
+        "name": "getRound",
+        "signature": "getRound() public pure",
+        "file": "Anyrand.sol",
+        "calls": [],
+        "depth": 1
+      },
+      {
+        "name": "assert",
+        "external": true,
+        "arguments": 1,
+        "depth": 1
+      },
+      {
+        "name": "_hashRequest",
+        "signature": "_hashRequest() view",
+        "file": "Anyrand.sol",
+        "calls": [],
+        "depth": 1
+      },
+      {
+        "name": "RandomnessRequested",
+        "file": "IAnyrand.sol",
+        "calls": [
+          {
+            "name": "IAnyrand.RandomnessRequested",
+            "type": "interface",
+            "interface": "IAnyrand",
+            "external": false,
+            "definition": {
+              "type": "event",
+              "name": "RandomnessRequested",
+              "parameters": [],
+              "file": "IAnyrand.sol",
+              "location": {
+                "start": {
+                  "line": 17,
+                  "column": 4
+                },
+                "end": {
+                  "line": 25,
+                  "column": 5
+                }
+              },
+              "sourceCode": "event RandomnessRequested(\n        uint256 indexed requestId,\n        address indexed requester,\n        bytes32 indexed pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256 feePaid,\n        uint256 effectiveFeePerGas\n    )"
+            },
+            "pattern": "byname",
+            "depth": 2
+          }
+        ],
+        "depth": 1
+      },
+      {
+        "name": "IDrandBeacon.publicKeyHash",
+        "type": "interface",
+        "interface": "IDrandBeacon",
+        "external": false,
+        "definition": {
+          "name": "publicKeyHash",
+          "signature": "publicKeyHash() external view",
+          "visibility": "external",
+          "stateMutability": "view",
+          "modifiers": [],
+          "parameters": [],
+          "returnParameters": [],
+          "isConstructor": false,
+          "isReceive": false,
+          "isFallback": false,
+          "file": "IDrandBeacon.sol",
+          "location": {
+            "start": {
+              "line": 12,
+              "column": 4
+            },
+            "end": {
+              "line": 12,
+              "column": 60
+            }
+          },
+          "calls": [],
+          "sourceCode": "function publicKeyHash() external view returns (bytes32)",
+          "resolvedCalls": []
+        },
+        "pattern": "variable",
+        "depth": 1
+      },
+      {
+        "name": "IDrandBeacon.genesisTimestamp",
+        "type": "interface",
+        "interface": "IDrandBeacon",
+        "external": false,
+        "definition": {
+          "name": "genesisTimestamp",
+          "signature": "genesisTimestamp() external view",
+          "visibility": "external",
+          "stateMutability": "view",
+          "modifiers": [],
+          "parameters": [],
+          "returnParameters": [],
+          "isConstructor": false,
+          "isReceive": false,
+          "isFallback": false,
+          "file": "IDrandBeacon.sol",
+          "location": {
+            "start": {
+              "line": 15,
+              "column": 4
+            },
+            "end": {
+              "line": 15,
+              "column": 63
+            }
+          },
+          "calls": [],
+          "sourceCode": "function genesisTimestamp() external view returns (uint256)",
+          "resolvedCalls": []
+        },
+        "pattern": "variable",
+        "depth": 1
+      },
+      {
+        "name": "IDrandBeacon.period",
+        "type": "interface",
+        "interface": "IDrandBeacon",
+        "external": false,
+        "definition": {
+          "name": "period",
+          "signature": "period() external view",
+          "visibility": "external",
+          "stateMutability": "view",
+          "modifiers": [],
+          "parameters": [],
+          "returnParameters": [],
+          "isConstructor": false,
+          "isReceive": false,
+          "isFallback": false,
+          "file": "IDrandBeacon.sol",
+          "location": {
+            "start": {
+              "line": 18,
+              "column": 4
+            },
+            "end": {
+              "line": 18,
+              "column": 53
+            }
+          },
+          "calls": [],
+          "sourceCode": "function period() external view returns (uint256)",
+          "resolvedCalls": []
+        },
+        "pattern": "variable",
+        "depth": 1
+      },
+      {
+        "name": "IAnyrand.getRequestPrice",
+        "type": "interface",
+        "interface": "IAnyrand",
+        "external": false,
+        "definition": {
+          "name": "getRequestPrice",
+          "signature": "getRequestPrice() external view",
+          "visibility": "external",
+          "stateMutability": "view",
+          "modifiers": [],
+          "parameters": [],
+          "returnParameters": [],
+          "isConstructor": false,
+          "isReceive": false,
+          "isFallback": false,
+          "file": "IAnyrand.sol",
+          "location": {
+            "start": {
+              "line": 58,
+              "column": 4
+            },
+            "end": {
+              "line": 60,
+              "column": 76
+            }
+          },
+          "calls": [],
+          "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) external view returns (uint256 totalPrice, uint256 effectiveFeePerGas)",
+          "resolvedCalls": []
+        },
+        "pattern": "byname",
+        "depth": 1
+      },
+      {
+        "name": "IAnyrand.RandomnessRequested",
+        "type": "interface",
+        "interface": "IAnyrand",
+        "external": false,
+        "definition": {
+          "type": "event",
+          "name": "RandomnessRequested",
+          "parameters": [],
+          "file": "IAnyrand.sol",
+          "location": {
+            "start": {
+              "line": 17,
+              "column": 4
+            },
+            "end": {
+              "line": 25,
+              "column": 5
+            }
+          },
+          "sourceCode": "event RandomnessRequested(\n        uint256 indexed requestId,\n        address indexed requester,\n        bytes32 indexed pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256 feePaid,\n        uint256 effectiveFeePerGas\n    )"
+        },
+        "pattern": "byname",
+        "depth": 1
+      },
+      {
+        "name": "IAnyrand.requestRandomness",
+        "type": "interface",
+        "interface": "IAnyrand",
+        "external": false,
+        "definition": {
+          "name": "requestRandomness",
+          "signature": "requestRandomness() external payable",
+          "visibility": "external",
+          "stateMutability": "payable",
+          "modifiers": [],
+          "parameters": [],
+          "returnParameters": [],
+          "isConstructor": false,
+          "isReceive": false,
+          "isFallback": false,
+          "file": "IAnyrand.sol",
+          "location": {
+            "start": {
+              "line": 68,
+              "column": 4
+            },
+            "end": {
+              "line": 71,
+              "column": 40
+            }
+          },
+          "calls": [],
+          "sourceCode": "function requestRandomness(\n        uint256 deadline,\n        uint256 callbackGasLimit\n    ) external payable returns (uint256)",
+          "resolvedCalls": []
+        },
+        "pattern": "byname",
+        "depth": 1
+      }
+    ],
+    "depth": 0
+  },
+  "functions": [
+    {
+      "name": "_getMainStorage",
+      "signature": "_getMainStorage() pure",
+      "visibility": "internal",
+      "stateMutability": "pure",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "AnyrandStorage.sol",
+      "location": {
+        "start": {
+          "line": 37,
+          "column": 4
+        },
+        "end": {
+          "line": 42,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "_hashRequest",
+      "signature": "_hashRequest() view",
+      "visibility": "internal",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 87,
+          "column": 4
+        },
+        "end": {
+          "line": 106,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 105,
+              "column": 12
+            }
+          }
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 96,
+              "column": 16
+            },
+            "end": {
+              "line": 104,
+              "column": 16
+            }
+          }
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 98,
+              "column": 20
+            },
+            "end": {
+              "line": 98,
+              "column": 32
+            }
+          }
+        }
+      ],
+      "sourceCode": "function _hashRequest(\n        uint256 requestId,\n        address requester,\n        bytes32 pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit\n    ) internal view returns (bytes32) {\n        return\n            keccak256(\n                abi.encode(\n                    block.chainid,\n                    address(this),\n                    requestId,\n                    requester,\n                    pubKeyHash,\n                    round,\n                    callbackGasLimit\n                )\n            );\n    ",
+      "resolvedCalls": [
+        {
+          "name": "keccak256",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 105,
+              "column": 12
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "abi.encode",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 96,
+              "column": 16
+            },
+            "end": {
+              "line": 104,
+              "column": 16
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "address",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 98,
+              "column": 20
+            },
+            "end": {
+              "line": 98,
+              "column": 32
+            }
+          },
+          "isExternal": true
+        }
+      ]
+    },
+    {
+      "name": "genesisTimestamp",
+      "signature": "genesisTimestamp() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 15,
+          "column": 4
+        },
+        "end": {
+          "line": 15,
+          "column": 63
+        }
+      },
+      "calls": [],
+      "sourceCode": "function genesisTimestamp() external view returns (uint256)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "getRequestPrice",
+      "signature": "getRequestPrice() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 58,
+          "column": 4
+        },
+        "end": {
+          "line": 60,
+          "column": 76
+        }
+      },
+      "calls": [],
+      "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) external view returns (uint256 totalPrice, uint256 effectiveFeePerGas)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "getRound",
+      "signature": "getRound() public pure",
+      "visibility": "public",
+      "stateMutability": "pure",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 157,
+          "column": 4
+        },
+        "end": {
+          "line": 164,
+          "column": 4
+        }
+      },
+      "calls": [],
+      "sourceCode": "function getRound(\n        uint256 genesis,\n        uint256 deadline,\n        uint256 period\n    ) public pure returns (uint64) {\n        uint256 delta = deadline - genesis;\n        return uint64(delta / period + (delta % period > 0 ? 1 : 0));\n    ",
+      "resolvedCalls": []
+    },
+    {
+      "name": "getTxCost",
+      "signature": "getTxCost() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IGasStation.sol",
+      "location": {
+        "start": {
+          "line": 14,
+          "column": 4
+        },
+        "end": {
+          "line": 16,
+          "column": 75
+        }
+      },
+      "calls": [],
+      "sourceCode": "function getTxCost(\n        uint256 gasLimit\n    ) external view returns (uint256 totalCost, uint256 effectiveFeePerGas)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "period",
+      "signature": "period() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 18,
+          "column": 4
+        },
+        "end": {
+          "line": 18,
+          "column": 53
+        }
+      },
+      "calls": [],
+      "sourceCode": "function period() external view returns (uint256)",
+      "resolvedCalls": []
+    },
+    {
+      "name": "publicKeyHash",
+      "signature": "publicKeyHash() external view",
+      "visibility": "external",
+      "stateMutability": "view",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IDrandBeacon.sol",
+      "location": {
+        "start": {
+          "line": 12,
+          "column": 4
+        },
+        "end": {
+          "line": 12,
+          "column": 60
+        }
+      },
+      "calls": [],
+      "sourceCode": "function publicKeyHash() external view returns (bytes32)",
+      "resolvedCalls": []
+    },
+    {
+      "type": "event",
+      "name": "RandomnessRequested",
+      "parameters": [],
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 25,
+          "column": 5
+        }
+      },
+      "sourceCode": "event RandomnessRequested(\n        uint256 indexed requestId,\n        address indexed requester,\n        bytes32 indexed pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256 feePaid,\n        uint256 effectiveFeePerGas\n    )"
+    },
+    {
+      "name": "requestRandomness",
+      "signature": "requestRandomness() external payable",
+      "visibility": "external",
+      "stateMutability": "payable",
+      "modifiers": [],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "IAnyrand.sol",
+      "location": {
+        "start": {
+          "line": 68,
+          "column": 4
+        },
+        "end": {
+          "line": 71,
+          "column": 40
+        }
+      },
+      "calls": [],
+      "sourceCode": "function requestRandomness(\n        uint256 deadline,\n        uint256 callbackGasLimit\n    ) external payable returns (uint256)",
+      "resolvedCalls": []
+    }
+  ],
+  "summary": {
+    "targetFunction": {
+      "name": "requestRandomness",
+      "signature": "requestRandomness() external payable",
+      "visibility": "external",
+      "stateMutability": "payable",
+      "modifiers": [
+        "nonReentrant"
+      ],
+      "parameters": [],
+      "returnParameters": [],
+      "isConstructor": false,
+      "isReceive": false,
+      "isFallback": false,
+      "file": "Anyrand.sol",
+      "location": {
+        "start": {
+          "line": 173,
+          "column": 4
+        },
+        "end": {
+          "line": 233,
+          "column": 4
+        }
+      },
+      "calls": [
+        {
+          "name": "getRequestPrice",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 179,
+              "column": 57
+            },
+            "end": {
+              "line": 181,
+              "column": 8
+            }
+          }
+        },
+        {
+          "name": "IncorrectPayment",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 183,
+              "column": 19
+            },
+            "end": {
+              "line": 183,
+              "column": 55
+            }
+          }
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 186,
+              "column": 32
+            },
+            "end": {
+              "line": 186,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "OverGasLimit",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 188,
+              "column": 19
+            },
+            "end": {
+              "line": 188,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 195,
+              "column": 39
+            },
+            "end": {
+              "line": 195,
+              "column": 73
+            }
+          }
+        },
+        {
+          "name": "drandBeacon.publicKeyHash",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 196,
+              "column": 25
+            },
+            "end": {
+              "line": 196,
+              "column": 51
+            }
+          }
+        },
+        {
+          "name": "drandBeacon.genesisTimestamp",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 197,
+              "column": 30
+            },
+            "end": {
+              "line": 197,
+              "column": 59
+            }
+          }
+        },
+        {
+          "name": "drandBeacon.period",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 198,
+              "column": 29
+            },
+            "end": {
+              "line": 198,
+              "column": 48
+            }
+          }
+        },
+        {
+          "name": "InvalidDeadline",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 204,
+              "column": 23
+            },
+            "end": {
+              "line": 204,
+              "column": 47
+            }
+          }
+        },
+        {
+          "name": "getRound",
+          "arguments": 3,
+          "location": {
+            "start": {
+              "line": 207,
+              "column": 20
+            },
+            "end": {
+              "line": 207,
+              "column": 54
+            }
+          }
+        },
+        {
+          "name": "assert",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 212,
+              "column": 8
+            },
+            "end": {
+              "line": 212,
+              "column": 69
+            }
+          }
+        },
+        {
+          "name": "_hashRequest",
+          "arguments": 5,
+          "location": {
+            "start": {
+              "line": 214,
+              "column": 32
+            },
+            "end": {
+              "line": 220,
+              "column": 8
+            }
+          }
+        },
+        {
+          "name": "RandomnessRequested",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 222,
+              "column": 13
+            },
+            "end": {
+              "line": 230,
+              "column": 8
+            }
+          }
+        }
+      ],
+      "sourceCode": "function requestRandomness(\n        uint256 deadline,\n        uint256 callbackGasLimit\n    ) external payable override nonReentrant returns (uint256) {\n        // Compute the total request price (including the premium) that will be\n        // used to cover the keeper's costs\n        (uint256 reqPrice, uint256 effectiveFeePerGas) = getRequestPrice(\n            callbackGasLimit\n        );\n        if (msg.value != reqPrice) {\n            revert IncorrectPayment(msg.value, reqPrice);\n        }\n\n        MainStorage storage $ = _getMainStorage();\n        if (callbackGasLimit > $.maxCallbackGasLimit) {\n            revert OverGasLimit(callbackGasLimit);\n        }\n\n        bytes32 pubKeyHash = $.currentBeaconPubKeyHash;\n        // Here we find the nearest round\n        uint64 round;\n        {\n            IDrandBeacon drandBeacon = IDrandBeacon($.beacons[pubKeyHash]);\n            pubKeyHash = drandBeacon.publicKeyHash();\n            uint256 genesis = drandBeacon.genesisTimestamp();\n            uint256 period = drandBeacon.period();\n            if (\n                (deadline > block.timestamp + $.maxDeadlineDelta) ||\n                (deadline < genesis) ||\n                deadline < (block.timestamp + period)\n            ) {\n                revert InvalidDeadline(deadline);\n            }\n            // Calculate nearest round from deadline (rounding to the future)\n            round = getRound(genesis, deadline, period);\n        }\n\n        // Record the commitment of this request\n        uint256 requestId = $.nextRequestId++;\n        assert($.requestStates[requestId] == RequestState.Nonexistent);\n        $.requestStates[requestId] = RequestState.Pending;\n        $.requests[requestId] = _hashRequest(\n            requestId,\n            msg.sender,\n            pubKeyHash,\n            round,\n            callbackGasLimit\n        );\n\n        emit RandomnessRequested(\n            requestId,\n            msg.sender,\n            pubKeyHash,\n            round,\n            callbackGasLimit,\n            reqPrice,\n            effectiveFeePerGas\n        );\n\n        return requestId;\n    ",
+      "resolvedCalls": [
+        {
+          "name": "getRequestPrice",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 179,
+              "column": 57
+            },
+            "end": {
+              "line": 181,
+              "column": 8
+            }
+          },
+          "definition": {
+            "name": "getRequestPrice",
+            "signature": "getRequestPrice() public view",
+            "visibility": "public",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 129,
+                "column": 4
+              },
+              "end": {
+                "line": 149,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "_getMainStorage",
+                "arguments": 0,
+                "location": {
+                  "start": {
+                    "line": 132,
+                    "column": 32
+                  },
+                  "end": {
+                    "line": 132,
+                    "column": 48
+                  }
+                }
+              },
+              {
+                "name": "getTxCost",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 133,
+                    "column": 58
+                  },
+                  "end": {
+                    "line": 137,
+                    "column": 12
+                  }
+                }
+              },
+              {
+                "name": "IGasStation",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 133,
+                    "column": 58
+                  },
+                  "end": {
+                    "line": 135,
+                    "column": 8
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function getRequestPrice(\n        uint256 callbackGasLimit\n    ) public view virtual returns (uint256, uint256) {\n        MainStorage storage $ = _getMainStorage();\n        (uint256 rawTxCost, uint256 effectiveFeePerGas) = IGasStation(\n            $.gasStation\n        ).getTxCost(\n                200_000 /** fulfillRandomness overhead */ + callbackGasLimit\n            );\n        uint256 totalCost = (rawTxCost * $.requestPremiumMultiplierBps) / 1e4;\n        if (effectiveFeePerGas > $.maxFeePerGas) {\n            // Cap gas price at maxFeePerGas (keeper will only fulfill when gas\n            // price <= maxFeePerGas)\n            // Importantly, fulfilment is permissionless, so it's possible to\n            // override this behaviour and fulfill randomness even when the\n            // keeper refuses to.\n            totalCost = $.maxFeePerGas * callbackGasLimit;\n            effectiveFeePerGas = $.maxFeePerGas;\n        }\n        return (totalCost, effectiveFeePerGas);\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "IncorrectPayment",
+          "arguments": 2,
+          "location": {
+            "start": {
+              "line": 183,
+              "column": 19
+            },
+            "end": {
+              "line": 183,
+              "column": 55
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_getMainStorage",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 186,
+              "column": 32
+            },
+            "end": {
+              "line": 186,
+              "column": 48
+            }
+          },
+          "definition": {
+            "name": "_getMainStorage",
+            "signature": "_getMainStorage() pure",
+            "visibility": "internal",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "AnyrandStorage.sol",
+            "location": {
+              "start": {
+                "line": 37,
+                "column": 4
+              },
+              "end": {
+                "line": 42,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function _getMainStorage() internal pure returns (MainStorage storage $) {\n        assembly {\n            // (keccak256(\"io.frogworks.anyrand.v1.main_storage\") - 1) & ~0xff\n            $.slot := 0x73bb1f7ad954352194401771e442b57f02df3da05251c4536bf437f932f99200\n        }\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "OverGasLimit",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 188,
+              "column": 19
+            },
+            "end": {
+              "line": 188,
+              "column": 48
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "IDrandBeacon",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 195,
+              "column": 39
+            },
+            "end": {
+              "line": 195,
+              "column": 73
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "drandBeacon.publicKeyHash",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 196,
+              "column": 25
+            },
+            "end": {
+              "line": 196,
+              "column": 51
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "drandBeacon.genesisTimestamp",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 197,
+              "column": 30
+            },
+            "end": {
+              "line": 197,
+              "column": 59
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "drandBeacon.period",
+          "arguments": 0,
+          "location": {
+            "start": {
+              "line": 198,
+              "column": 29
+            },
+            "end": {
+              "line": 198,
+              "column": 48
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "InvalidDeadline",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 204,
+              "column": 23
+            },
+            "end": {
+              "line": 204,
+              "column": 47
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "getRound",
+          "arguments": 3,
+          "location": {
+            "start": {
+              "line": 207,
+              "column": 20
+            },
+            "end": {
+              "line": 207,
+              "column": 54
+            }
+          },
+          "definition": {
+            "name": "getRound",
+            "signature": "getRound() public pure",
+            "visibility": "public",
+            "stateMutability": "pure",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 157,
+                "column": 4
+              },
+              "end": {
+                "line": 164,
+                "column": 4
+              }
+            },
+            "calls": [],
+            "sourceCode": "function getRound(\n        uint256 genesis,\n        uint256 deadline,\n        uint256 period\n    ) public pure returns (uint64) {\n        uint256 delta = deadline - genesis;\n        return uint64(delta / period + (delta % period > 0 ? 1 : 0));\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "assert",
+          "arguments": 1,
+          "location": {
+            "start": {
+              "line": 212,
+              "column": 8
+            },
+            "end": {
+              "line": 212,
+              "column": 69
+            }
+          },
+          "isExternal": true
+        },
+        {
+          "name": "_hashRequest",
+          "arguments": 5,
+          "location": {
+            "start": {
+              "line": 214,
+              "column": 32
+            },
+            "end": {
+              "line": 220,
+              "column": 8
+            }
+          },
+          "definition": {
+            "name": "_hashRequest",
+            "signature": "_hashRequest() view",
+            "visibility": "internal",
+            "stateMutability": "view",
+            "modifiers": [],
+            "parameters": [],
+            "returnParameters": [],
+            "isConstructor": false,
+            "isReceive": false,
+            "isFallback": false,
+            "file": "Anyrand.sol",
+            "location": {
+              "start": {
+                "line": 87,
+                "column": 4
+              },
+              "end": {
+                "line": 106,
+                "column": 4
+              }
+            },
+            "calls": [
+              {
+                "name": "keccak256",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 95,
+                    "column": 12
+                  },
+                  "end": {
+                    "line": 105,
+                    "column": 12
+                  }
+                }
+              },
+              {
+                "name": "abi.encode",
+                "arguments": 7,
+                "location": {
+                  "start": {
+                    "line": 96,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 104,
+                    "column": 16
+                  }
+                }
+              },
+              {
+                "name": "address",
+                "arguments": 1,
+                "location": {
+                  "start": {
+                    "line": 98,
+                    "column": 20
+                  },
+                  "end": {
+                    "line": 98,
+                    "column": 32
+                  }
+                }
+              }
+            ],
+            "sourceCode": "function _hashRequest(\n        uint256 requestId,\n        address requester,\n        bytes32 pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit\n    ) internal view returns (bytes32) {\n        return\n            keccak256(\n                abi.encode(\n                    block.chainid,\n                    address(this),\n                    requestId,\n                    requester,\n                    pubKeyHash,\n                    round,\n                    callbackGasLimit\n                )\n            );\n    "
+          },
+          "isExternal": false
+        },
+        {
+          "name": "RandomnessRequested",
+          "arguments": 7,
+          "location": {
+            "start": {
+              "line": 222,
+              "column": 13
+            },
+            "end": {
+              "line": 230,
+              "column": 8
+            }
+          },
+          "definition": {
+            "type": "event",
+            "name": "RandomnessRequested",
+            "parameters": [],
+            "file": "IAnyrand.sol",
+            "location": {
+              "start": {
+                "line": 17,
+                "column": 4
+              },
+              "end": {
+                "line": 25,
+                "column": 5
+              }
+            },
+            "sourceCode": "event RandomnessRequested(\n        uint256 indexed requestId,\n        address indexed requester,\n        bytes32 indexed pubKeyHash,\n        uint256 round,\n        uint256 callbackGasLimit,\n        uint256 feePaid,\n        uint256 effectiveFeePerGas\n    )"
+          },
+          "isExternal": false
+        }
+      ]
+    },
+    "totalExtractedFunctions": 10,
+    "functionsByFile": {
+      "AnyrandStorage.sol": [
+        "_getMainStorage"
+      ],
+      "Anyrand.sol": [
+        "_hashRequest",
+        "getRound"
+      ],
+      "IDrandBeacon.sol": [
+        "genesisTimestamp",
+        "period",
+        "publicKeyHash"
+      ],
+      "IAnyrand.sol": [
+        "getRequestPrice",
+        "RandomnessRequested",
+        "requestRandomness"
+      ],
+      "IGasStation.sol": [
+        "getTxCost"
+      ]
+    },
+    "callDepthAnalysis": {
+      "0": 1,
+      "1": 19,
+      "2": 3
+    }
+  }
+}
