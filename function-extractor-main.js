@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const GitHubSolidityAnalyzer = require('./solidity-analyzer.js');
-const CallTreeBuilder = require('./call-tree-builder.js');
-const FunctionFinder = require('./function-finder.js');
+const GitHubSolidityAnalyzer = require('./evm/solidity-analyzer.js');
+const CallTreeBuilder = require('./evm/call-tree-builder.js');
+const FunctionFinder = require('./evm/function-finder.js');
 const fs = require('fs');
 
 class FunctionExtractor {

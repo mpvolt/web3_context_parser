@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 // --- Load CommonJS module dynamically ---
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-const FunctionExtractor = require("./evm/function-extractor-main.js");
+const FunctionExtractor = require("./function-extractor-main.js");
 
 // --- Setup paths and options ---
 const __filename = fileURLToPath(import.meta.url);
